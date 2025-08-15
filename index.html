@@ -40,7 +40,9 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-5N5BEMMRD2');
+  gtag('config', 'G-5N5BEMMRD2',{
+    cookie_domain: 'none' // <-- Prevents invalid domain cookies
+  });
 </script>
 </head>
 <body>
@@ -983,7 +985,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
   </script>
-
+<!-- Schema Markup -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -991,7 +993,7 @@ document.addEventListener('DOMContentLoaded', function() {
   "name": "Aman Kumar",
   "url": "https://amankkamboj.github.io/wordpress-portfolio/",
   "image": "https://amankkamboj.github.io/wordpress-portfolio/assets/img/Aman-Kumar.jpg",
-  "jobTitle": "WordPress Full-Stack Developer",
+  "jobTitle": "WordPress Business Developer",
   "worksFor": {
     "@type": "Organization",
     "name": "Freelance"
@@ -1003,6 +1005,56 @@ document.addEventListener('DOMContentLoaded', function() {
   ]
 }
 </script>
-
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How long does a typical WordPress project take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most projects take 4-8 weeks from discovery to launch, depending on complexity. Small business sites can be completed in 2-3 weeks, while large e-commerce solutions may take 3-6 months."
+        }
+      },{
+        "@type": "Question",
+        "name": "What's your pricing structure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I offer both fixed-price projects (starting at $3,500) and retainer agreements. E-commerce solutions typically range from $8,000-$25,000 depending on functionality requirements."
+        }
+      },{
+        "@type": "Question",
+        "name": "Do you provide ongoing support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, I offer monthly maintenance plans starting at $250/month that include updates, backups, security monitoring, and up to 2 hours of support."
+        }
+      }]
+    }
+  </script>
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://amankkamboj.github.io/wordpress-portfolio/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "WordPress Developer Portfolio",
+        "item": "https://amankkamboj.github.io/wordpress-portfolio/#portfolio"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Contact WordPress Expert",
+        "item": "https://amankkamboj.github.io/wordpress-portfolio/#contact"
+      }]
+    }
+  </script>
 </body>
 </html>
