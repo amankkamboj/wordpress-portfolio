@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aman Kumar | WordPress Full-Stack Developer | 12+ Years Experience</title>
-  <meta name="description" content="WordPress & WooCommerce expert developer. I build high-performance, secure websites that convert. 100+ successful projects delivered with 98% client satisfaction." />
+  <title>Aman Kumar – Expert WordPress & WooCommerce Developer | 12+ Years of Proven Results</title>
+  <meta name="description" content="Hire Aman Kumar – WordPress & WooCommerce expert with 12+ years experience. High-performance, SEO-optimized websites that convert visitors into customers. Get your free consultation today!">
   <meta name="google-site-verification" content="XLNG0U8C0fSsx4CuaK-1P8zwvQ1_oP4QRudAShvFpo0" />
-  <link rel="canonical" href="canonical" />
+  <link rel="canonical" href="https://amankkamboj.github.io/wordpress-portfolio/" />
+
   <meta name="theme-color" content="#2563EB" />
 
   <!-- Favicons -->
@@ -86,10 +87,10 @@
           </p>
           <div class="d-flex flex-wrap gap-3 hero-cta mt-4">
             <a class="btn btn-primary btn-lg px-4" href="#contact">
-              <i class="fa-regular fa-paper-plane me-2"></i>Start Your Project
+              <i class="fa-regular fa-paper-plane me-2"></i>Get a Free WordPress Consultation
             </a>
             <a class="btn btn-outline-secondary btn-lg px-4" href="#portfolio">
-              <i class="fa-regular fa-eye me-2"></i>View My Work
+              <i class="fa-regular fa-eye me-2"></i>See My Proven Results
             </a>
           </div>
           
@@ -364,7 +365,7 @@
         <div class="col-md-6 col-lg-4">
           <article class="card h-100 border-0 shadow-sm card-hover rounded-4 overflow-hidden">
             <div class="card-img-top overflow-hidden">
-              <img src="assets/img/portfolio/Lilibloom.png" class="img-fluid w-100" alt="Project Screenshot" loading="lazy">
+              <img src="assets/img/portfolio/Lilibloom.png" class="img-fluid w-100" alt="Custom WooCommerce Store for Lilibloom" loading="lazy">
             </div>
             <div class="card-body p-4">
               <div class="d-flex justify-content-between align-items-start mb-3">
@@ -387,7 +388,7 @@
         <div class="col-md-6 col-lg-4">
           <article class="card h-100 border-0 shadow-sm card-hover rounded-4 overflow-hidden">
             <div class="card-img-top overflow-hidden">
-              <img src="assets/img/portfolio/donnasnaturals.png" class="img-fluid w-100" alt="Project Screenshot" loading="lazy">
+              <img src="assets/img/portfolio/donnasnaturals.png" class="img-fluid w-100" alt="Donna's naturals" loading="lazy">
             </div>
             <div class="card-body p-4">
               <div class="d-flex justify-content-between align-items-start mb-3">
@@ -960,7 +961,48 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 5000);
     }
   });
+
+
+
+  function trackClick(selector, name){
+    document.querySelectorAll(selector).forEach(el=>{
+      el.addEventListener('click', ()=>{
+        if (window.gtag) gtag('event', 'click', {
+          event_category: 'CTA',
+          event_label: name
+        });
+      });
+    });
+  }
+  trackClick('a[href="#contact"]', 'Contact');
+  trackClick('a[download][href$=".pdf"]', 'Download CV');
+  trackClick('a[href*="upwork.com"]', 'Upwork');
+  trackClick('a[href^="mailto:"]', 'Email');
+  trackClick('a[href^="tel:"]', 'Phone');
+
+
 });
   </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aman Kumar",
+  "url": "https://amankkamboj.github.io/wordpress-portfolio/",
+  "image": "https://amankkamboj.github.io/wordpress-portfolio/assets/img/Aman-Kumar.jpg",
+  "jobTitle": "WordPress Full-Stack Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/freelancer-aman-webdeveloper/",
+    "https://github.com/amankkamboj",
+    "https://www.upwork.com/freelancers/~0178b1b3d3b2fd6baa"
+  ]
+}
+</script>
+
 </body>
 </html>
