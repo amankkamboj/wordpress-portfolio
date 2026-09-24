@@ -7,7 +7,7 @@ Static HTML, CSS and vanilla JavaScript. Open index.html directly; no build or d
 - assets/css/style.css: responsive styles and theme variables.
 - assets/js/main.js: mobile navigation and current year.
 - assets/images/profile.jpg: professional AI-assisted edit of the supplied actual portrait; the original remains unchanged.
-- assets/images/projects/: illustrative screenshot crops, not verified live-site screenshots.
+- assets/images/projects/: seven real homepage screenshots from the websites supplied by Aman. SOURCES.md records URLs and capture details.
 - assets/images/favicon.svg: local favicon.
 - robots.txt: allows crawling; add the sitemap after the real URL is set.
 - scripts/configure-seo.js: optional development-time URL configuration; never required by the browser.
@@ -22,7 +22,7 @@ Eight recommendation excerpts come from the LinkedIn text supplied by Aman. Thre
 Old testimonial avatar files are unused. There are no face images in the testimonial section.
 
 ## Remaining content work
-Seven project preview cards retain the requested project names, with illustrative images. Their actual scope, ownership, URLs and outcomes still need confirmation. No demo performance metrics are displayed. Replace these previews with real work descriptions and screenshots before treating this as a finished public portfolio. The invented eighth project, demo testimonial names, rating, site count and response-time claim have been removed. The unconfirmed years-of-experience claim was also removed; add it back once confirmed. Learning categories are not presented as awarded certificates.
+Seven portfolio cards now use real homepage screenshots and live website links supplied by Aman. Category descriptions identify each site without claiming specific development scope or measured outcomes. Detailed case studies can be added once roles and results are supplied. The invented eighth project, demo testimonial names, rating, site count and response-time claim have been removed. The unconfirmed years-of-experience claim was also removed; add it back once confirmed. Learning categories are not presented as awarded certificates.
 
 ## Set the production URL
 Once the real HTTPS homepage address is known, run:

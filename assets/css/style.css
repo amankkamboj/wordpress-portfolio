@@ -1821,3 +1821,10 @@
 .stats strong { font-size: 14px; overflow-wrap: normal; }
 @media (max-width: 900px) { .stats { gap: 4px; } .stats strong { font-size: 12px; } }
 @media (max-width: 520px) { .stats > div { padding-inline: 3px; } .stats strong { font-size: 10px; } }
+/* Live website previews preserve the complete homepage capture. */
+.project-preview { display: block; overflow: hidden; border-radius: 3px; background: #f3f5f7; }
+.project-preview img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: contain; }
+.project-category { font-size: 13px; line-height: 1.5; min-height: 39px; color: var(--text-muted); }
+.project-links a { gap: 12px; }
+.project-links a svg { width: 16px; height: 16px; color: var(--accent); }
+@media (max-width: 520px) { .project-category { min-height: 0; font-size: 14px; } }

@@ -35,3 +35,6 @@ A crawlable page is eligible for indexing, not guaranteed to be indexed or ranke
 ## Production URL configured
 Canonical URL, absolute Open Graph image, Person URL/image, sitemap.xml and sitemap declaration now use https://amankkamboj.github.io/wordpress-portfolio/. Publication and Search Console verification remain to be completed.
 
+
+## Real portfolio screenshots added
+The seven websites provided by Aman now replace the old previews with actual homepage screenshots and live outbound links. Placeholder detail panels and “case study in preparation” labels are removed. Project-specific roles and measurable results remain future case-study content. Source URLs and capture date are recorded in assets/images/projects/SOURCES.md.
