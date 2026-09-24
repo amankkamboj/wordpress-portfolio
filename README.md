@@ -39,3 +39,18 @@ Publish the static files on GitHub Pages after reviewing project content. Verify
 ## Maintenance
 Edit text, recommendation excerpts, image paths and links directly in index.html. CSS theme variables live at the start of style.css; responsive and review refinements appear later. Keep recommendations as exact excerpts and update the date/source with any new additions. Replace imagery without renaming paths where possible. No external fonts, UI libraries, trackers or third-party scripts are loaded.
 
+
+## SEO & Indexing
+
+- Production URL: https://amankkamboj.github.io/wordpress-portfolio/
+- robots.txt: https://amankkamboj.github.io/wordpress-portfolio/robots.txt
+- Sitemap: https://amankkamboj.github.io/wordpress-portfolio/sitemap.xml
+- Verify this exact URL-prefix property in Google Search Console. Copy Google’s real HTML verification tag into the marked location in the head, deploy, then click Verify. No verification token is currently configured.
+- Submit sitemap.xml after deployment. Use URL Inspection and request indexing for https://amankkamboj.github.io/wordpress-portfolio/.
+- Because this is a project subdirectory, its robots.txt is not the origin-level crawler policy. Only https://amankkamboj.github.io/robots.txt controls crawling for this host. Submit the project sitemap directly in Search Console.
+- Add future case-study URLs to sitemap.xml only once those pages actually exist. No case-study pages were created in this update.
+- The current social photo is 1106 × 1422 pixels. A dedicated 1200 × 630 share image is a future improvement; portrait cropping depends on the sharing platform.
+- Keep lastmod aligned with significant page changes; do not refresh it simply to appear current. Google ignores priority and changefreq, so these are omitted.
+- scripts/configure-seo.js remains a documented maintenance utility. It updates URLs when moving the site; it is not loaded by visitors.
+
+Local validation checks metadata uniqueness, schema JSON, sitemap XML, asset paths and accessibility attributes. Search Console ownership, live deployment and Google indexing are separate steps and are not established by local validation.

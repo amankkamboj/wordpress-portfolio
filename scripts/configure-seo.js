@@ -1,4 +1,4 @@
-/** Run once the real public homepage URL is known. No runtime dependency. */
+/** Maintenance utility for changing the public homepage URL. No runtime dependency. */
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');
@@ -16,6 +16,7 @@ let html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 html = html.replace(/<link rel="canonical"[^>]*>\s*/g, '').replace(/<meta property="og:url"[^>]*>\s*/g, '');
 html = html.replace('</head>', `<link rel="canonical" href="${escape(site.href)}">\n<meta property="og:url" content="${escape(site.href)}">\n</head>`);
 html = html.replace(/<meta property="og:image"[^>]*>/, `<meta property="og:image" content="${escape(new URL('assets/images/profile.jpg', site).href)}">`);
+html = html.replace(/<meta name="twitter:image"[^>]*>/, `<meta name="twitter:image" content="${escape(new URL('assets/images/profile.jpg', site).href)}">`);
 html = html.replace(/(<script type="application\/ld\+json" id="person-schema">)([\s\S]*?)(<\/script>)/, (_,open,json,close) => {
   const person = JSON.parse(json);
   person.url = site.href;
@@ -24,7 +25,10 @@ html = html.replace(/(<script type="application\/ld\+json" id="person-schema">)(
   return open + '\n' + JSON.stringify(person, null, 2).replace(/</g, '\\u003c') + '\n' + close;
 });
 fs.writeFileSync(path.join(root, 'index.html'), html);
-fs.writeFileSync(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escape(site.href)}</loc></url></urlset>\n`);
+const sitemapPath = path.join(root, 'sitemap.xml');
+const oldSitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
+const lastmod = oldSitemap.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/)?.[1];
+fs.writeFileSync(sitemapPath, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${escape(site.href)}</loc>${lastmod ? '\n    <lastmod>' + lastmod + '</lastmod>' : ''}\n  </url>\n</urlset>\n`);
 fs.writeFileSync(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${new URL('sitemap.xml', site).href}\n`);
 console.log('Updated canonical URL, social URLs, person schema, sitemap.xml and robots.txt.');
 if (site.pathname !== '/') console.log('robots.txt is only honored at the origin root. Submit this project sitemap directly in Search Console.');
