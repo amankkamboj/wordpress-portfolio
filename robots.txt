@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amankkamboj.github.io/wordpress-portfolio/sitemap.xml
