@@ -45,7 +45,7 @@ Edit text, recommendation excerpts, image paths and links directly in index.html
 - Production URL: https://amankkamboj.github.io/wordpress-portfolio/
 - robots.txt: https://amankkamboj.github.io/wordpress-portfolio/robots.txt
 - Sitemap: https://amankkamboj.github.io/wordpress-portfolio/sitemap.xml
-- Verify this exact URL-prefix property in Google Search Console. Copy Google’s real HTML verification tag into the marked location in the head, deploy, then click Verify. No verification token is currently configured.
+- Verify this exact URL-prefix property in Google Search Console. Copy Google’s real HTML verification tag into the marked location in the head, deploy, then click Verify. The existing verification tag is now present on the homepage and is preserved. Ownership verification must still be confirmed in Search Console.
 - Submit sitemap.xml after deployment. Use URL Inspection and request indexing for https://amankkamboj.github.io/wordpress-portfolio/.
 - Because this is a project subdirectory, its robots.txt is not the origin-level crawler policy. Only https://amankkamboj.github.io/robots.txt controls crawling for this host. Submit the project sitemap directly in Search Console.
 - Add future case-study URLs to sitemap.xml only once those pages actually exist. No case-study pages were created in this update.
@@ -54,3 +54,12 @@ Edit text, recommendation excerpts, image paths and links directly in index.html
 - scripts/configure-seo.js remains a documented maintenance utility. It updates URLs when moving the site; it is not loaded by visitors.
 
 Local validation checks metadata uniqueness, schema JSON, sitemap XML, asset paths and accessibility attributes. Search Console ownership, live deployment and Google indexing are separate steps and are not established by local validation.
+
+## Dedicated service pages
+Five directory-based service pages are included: wordpress-development, woocommerce-development, wordpress-troubleshooting, wordpress-performance-optimization, and wordpress-security. Each folder contains an index.html and shares the existing CSS and JavaScript. Homepage cards, a native Services dropdown, footer links and related-service cards connect the pages.
+
+See SERVICE-PAGES.md for the exact URLs, titles, descriptions and publishing checklist. Authoring sources are scripts/service-content.js and scripts/build-services.js. Run `node scripts/build-services.js` to regenerate the five pages and shared homepage navigation/service cards/footer after editing these sources. No build is required by the deployed website.
+
+Service-page assets use /wordpress-portfolio/assets/ paths. Preview them through a local HTTP server mounted at /wordpress-portfolio/, not by double-clicking a nested index.html. All six URLs are included in sitemap.xml. No lastmod is supplied until an actual deployment date is known. The URL configuration script now discovers directory index pages and retains their sitemap entries.
+
+The homepage's real Search Console verification tag is preserved. Security copy describes WordPress/PHP experience and ongoing learning, not a completed cybersecurity certification. A code comment marks where a future verified credential can be added.
