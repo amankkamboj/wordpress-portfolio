@@ -1917,3 +1917,34 @@
   .service-author .service-author-name { font-size: 20px; }
   .breadcrumbs ol { font-size: 12px; }
 }
+/* Align the disclosure chevron to the label, independent of font glyph metrics. */
+.services-menu summary { display: flex; align-items: center; justify-content: center; gap: 9px; }
+.services-menu summary::after { content: ''; display: block; width: 6px; height: 6px; margin: -3px 0 0; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); flex-shrink: 0; }
+.services-menu[open] summary::after { transform: rotate(225deg); margin-top: 3px; }
+/* Four-column footer, matching the reference structure in the portfolio palette. */
+.site-footer { background: #00101a; border-top: 1px solid var(--border); }
+.footer-columns { display: grid; grid-template-columns: 1.1fr .85fr 1.2fr 1.3fr; gap: 28px; padding-block: 52px; }
+.footer-introduction .logo { display: inline-block; font-size: 43px; margin-bottom: 22px; }
+.footer-introduction > p { font-size: 15px; line-height: 1.8; max-width: 260px; }
+.footer-column { border-left: 1px solid var(--border); padding-left: 25px; min-width: 0; }
+.footer-column h2 { font-size: 20px; line-height: 1.25; color: var(--accent); letter-spacing: -.02em; margin-bottom: 22px; }
+.footer-column h2::after { content: ''; display: block; margin-top: 12px; width: 62px; height: 3px; border-radius: 3px; background: var(--accent-secondary); }
+.site-footer .footer-column nav { display: flex; flex-direction: column; gap: 0; }
+.site-footer .footer-column nav a { display: flex; gap: 9px; font-size: 14px; font-weight: 400; line-height: 1.5; padding-block: 8px; }
+.footer-column nav a::before { content: '»'; color: var(--accent); font-size: 20px; line-height: 1.05; flex-shrink: 0; }
+.footer-socials { display: flex; gap: 12px; margin-top: 23px; }
+.footer-socials a { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; border: 1px solid var(--accent); color: var(--text); }
+.footer-socials a:hover { background: #003047; }
+.footer-socials span { font-size: 21px; font-weight: 800; }
+.footer-socials svg { width: 20px; height: 20px; }
+.footer-contact address { font-style: normal; font-size: 14px; line-height: 1.6; }
+.footer-contact address > * { display: flex; gap: 10px; align-items: flex-start; padding-block: 8px; color: var(--text-muted); }
+.footer-contact address svg { width: 18px; height: 18px; margin-top: 3px; color: var(--accent); }
+.footer-contact address span { min-width: 0; overflow-wrap: anywhere; }
+.footer-contact address a:hover { color: var(--accent); }
+.footer-contact .button { margin-top: 20px; min-height: 44px; font-size: 14px; }
+.footer-bottom { border-top: 1px solid var(--border); }
+.footer-bottom .container { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 21px; }
+.footer-bottom p, .footer-bottom a { font-size: 12px; }
+@media (max-width: 1100px) { .footer-columns { grid-template-columns: 1fr 1fr; gap: 36px; } .footer-column { padding-left: 24px; } .footer-column:nth-child(3) { border-left: 0; padding-left: 0; } .footer-introduction > p { max-width: 340px; } }
+@media (max-width: 520px) { .footer-columns { grid-template-columns: 1fr; gap: 28px; padding-block: 34px; } .footer-column, .footer-column:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); padding: 24px 0 0; } .site-footer .footer-column nav { align-items: flex-start; } .footer-column h2 { font-size: 21px; margin-bottom: 15px; } .footer-bottom .container { flex-direction: column; align-items: flex-start; gap: 12px; } .service-page .footer-contact .button { width: auto; } }

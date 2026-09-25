@@ -22,11 +22,16 @@ function header(isHome){return `<header class="site-header"><div class="containe
 <nav id="main-nav" aria-label="Main navigation">${navigation(isHome)}</nav>
 <a class="button header-cta" href="${isHome?'#contact':prefix+'#contact'}">Let's Talk <svg aria-hidden="true"><use href="#arrow"/></svg></a>
 </div></header>`;}
-function footer(isHome){const dest=id=>isHome?`#${id}`:`${prefix}#${id}`;return `<footer>
-<div class="container footer-main"><div class="footer-brand"><a class="logo" href="${isHome?'#home':base}" aria-label="Aman Kumar home">AK<span>.</span></a><p>Building better WordPress websites, together.</p></div>
-<nav aria-label="Footer navigation">${[['home','Home'],['services','Services'],['work','Work'],['testimonials','Recommendations'],['about','About'],['contact','Contact']].map(([id,label])=>`<a href="${dest(id)}">${label}</a>`).join('')}</nav></div>
-<div class="container footer-services"><p>Services</p><nav aria-label="Service pages">${services.map(s=>`<a href="${link(s.slug,isHome)}">${esc(s.label)}</a>`).join('')}</nav></div>
-<p class="copyright">© <span id="year">2026</span> Aman Kumar. All rights reserved.</p></footer>`;}
+function footer(isHome){const dest=id=>isHome?`#${id}`:`${prefix}#${id}`;return `<footer class="site-footer">
+<div class="container footer-columns">
+<div class="footer-introduction"><a class="logo" href="${isHome?'#home':base}" aria-label="Aman Kumar home">AK<span>.</span></a><p>Building better WordPress websites, together. Practical development, reliable fixes and ongoing support for your business.</p><div class="footer-socials"><a href="https://www.linkedin.com/in/freelancer-aman-webdeveloper/" aria-label="Aman Kumar on LinkedIn"><span aria-hidden="true">in</span></a><a href="mailto:amankamboj2387@gmail.com" aria-label="Email Aman Kumar"><svg aria-hidden="true"><use href="#mail"/></svg></a></div></div>
+<div class="footer-column"><h2>Quick Links</h2><nav aria-label="Footer navigation">${[['home','Home'],['about','About'],['services','Services'],['work','Portfolio'],['testimonials','Recommendations'],['contact','Contact']].map(([id,label])=>`<a href="${dest(id)}">${label}</a>`).join('')}</nav></div>
+<div class="footer-column"><h2>Our Services</h2><nav aria-label="Service pages">${services.map(s=>`<a href="${link(s.slug,isHome)}">${esc(s.label)}</a>`).join('')}<a href="${dest('contact')}">Migration &amp; Maintenance</a></nav></div>
+<div class="footer-column footer-contact"><h2>Contact Information</h2><address><a href="mailto:amankamboj2387@gmail.com"><svg aria-hidden="true"><use href="#mail"/></svg><span>amankamboj2387@gmail.com</span></a><p><svg aria-hidden="true"><use href="#pin"/></svg><span>Chandigarh, India</span></p><p><svg aria-hidden="true"><use href="#globe"/></svg><span>Working remotely with clients worldwide</span></p></address><a class="button" href="${dest('contact')}">Let's Talk <svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
+</div>
+<div class="footer-bottom"><div class="container"><p>© <span id="year">2026</span> Aman Kumar. All rights reserved.</p><a href="${dest('home')}">Back to top ↑</a></div></div>
+</footer>`;}
+
 home=home.replace(/<header class="site-header">[\s\S]*?<\/header>/,header(true));
 home=home.replace(/<footer>[\s\S]*?<\/footer>/,footer(true));
 const homepageCards=[
