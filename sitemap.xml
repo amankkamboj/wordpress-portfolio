@@ -1,46 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <url>
-       <loc>https://amankkamboj.github.io/wordpress-portfolio/</loc>
-       <lastmod>2026-09-25T16:59:47+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-development/</loc>
-       <lastmod>2026-09-25T16:59:47+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://amankkamboj.github.io/wordpress-portfolio/woocommerce-development/</loc>
-       <lastmod>2026-09-25T16:59:47+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-troubleshooting/</loc>
-       <lastmod>2026-09-25T16:59:47+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-performance-optimization/</loc>
-       <lastmod>2026-09-25T16:59:47+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-security/</loc>
-       <lastmod>2026-09-25T16:59:47+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-migration-maintenance/</loc>
-       <lastmod>2026-09-25T16:59:47+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-studies/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-woocommerce-product-filters/</loc></url>
   <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-woocommerce-stripe-tax/</loc></url>
   <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-wordpress-enquiry-workflow/</loc></url>
-  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-wpml-yoast-sitemap/</loc></url>
-  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-woocommerce-product-filters/</loc></url>
   <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-wordpress-malware-cleanup/</loc></url>
   <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-wordpress-speed-optimization/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/case-study-wpml-yoast-sitemap/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/privacy/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/woocommerce-development/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-development/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-migration-maintenance/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-performance-optimization/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-security/</loc></url>
+  <url><loc>https://amankkamboj.github.io/wordpress-portfolio/wordpress-troubleshooting/</loc></url>
 </urlset>
