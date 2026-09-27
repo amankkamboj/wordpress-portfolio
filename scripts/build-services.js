@@ -72,16 +72,20 @@ for(const s of services){
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_IN">
 <meta property="og:site_name" content="Aman Kumar — WordPress &amp; PHP Developer">
-<meta property="og:image" content="${base}assets/images/profile.jpg">
-<meta property="og:image:width" content="1106">
-<meta property="og:image:height" content="1422">
+<meta property="og:image" content="${base}assets/images/aman-professional-social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
 <meta property="og:image:alt" content="Aman Kumar, WordPress and PHP developer">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="${esc(s.title)}">
 <meta name="twitter:description" content="${esc(s.description)}">
-<meta name="twitter:image" content="${base}assets/images/profile.jpg">
+<meta name="twitter:image" content="${base}assets/images/aman-professional-social.jpg">
 <meta name="twitter:image:alt" content="Aman Kumar, WordPress and PHP developer">
-<link rel="icon" href="${prefix}assets/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="${prefix}assets/images/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256">
+<link rel="icon" type="image/png" sizes="32x32" href="${prefix}assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="${prefix}assets/images/favicon-96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="${prefix}assets/images/apple-touch-icon.png">
+<meta property="og:image:type" content="image/jpeg">
 <link rel="stylesheet" href="${prefix}assets/css/style.css">
 <script src="${prefix}assets/js/main.js" defer></script>
 <script type="application/ld+json">${JSON.stringify(schema,null,2).replace(/</g,'\\u003c')}</script>

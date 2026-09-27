@@ -38,3 +38,14 @@ Canonical URL, absolute Open Graph image, Person URL/image, sitemap.xml and site
 
 ## Real portfolio screenshots added
 The seven websites provided by Aman now replace the old previews with actual homepage screenshots and live outbound links. Placeholder detail panels and “case study in preparation” labels are removed. Project-specific roles and measurable results remain future case-study content. Source URLs and capture date are recorded in assets/images/projects/SOURCES.md.
+
+## Portrait branding and SEO audit — September 27, 2026
+All seven HTML pages now use the supplied professional portrait for PNG/ICO browser favicons, the Apple touch icon, and Open Graph/Twitter images. The shared JPEG is 1200 × 1200; Twitter uses a square summary card to keep the portrait intact. Existing on-page portraits are unchanged.
+
+Local checks passed for unique page titles, self-referencing canonicals, matching Open Graph URLs, one H1 per page, parseable JSON-LD, image alt attributes, and local links/assets/anchors. The sitemap includes all seven pages. Existing GA4 tags and homepage Search Console verification were preserved. These checks do not establish live indexing or analytics collection.
+
+Google Search chooses one favicon per hostname, not per project subdirectory. Declare the same favicon on https://amankkamboj.github.io/ for Google Search eligibility; the project pages already declare it for browser tabs. Google controls display and recrawl timing. Reference: https://developers.google.com/search/docs/appearance/favicon-in-search
+
+Maintenance: edit existing HTML directly for now. The service-page generator covers only the original five service pages and does not preserve the subsequently added analytics or migration/maintenance navigation. Its branding template is updated, but it was not run during this audit. Extend the generator before regenerating the site.
+
+These changes are local and have not been published.

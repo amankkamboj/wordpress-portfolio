@@ -37,7 +37,7 @@ For a GitHub Pages project subpath, robots.txt is only honored at the origin roo
 Publish the static files on GitHub Pages after reviewing project content. Verify HTTPS and HTTP 200 on the homepage. Verify site ownership in Google Search Console, inspect the homepage, run the live test, request indexing and submit the sitemap. Google determines crawling, indexing and rankings; none are guaranteed by these files.
 
 ## Maintenance
-Edit text, recommendation excerpts, image paths and links directly in index.html. CSS theme variables live at the start of style.css; responsive and review refinements appear later. Keep recommendations as exact excerpts and update the date/source with any new additions. Replace imagery without renaming paths where possible. No external fonts, UI libraries, trackers or third-party scripts are loaded.
+Edit text, recommendation excerpts, image paths and links directly in index.html. CSS theme variables live at the start of style.css; responsive and review refinements appear later. Keep recommendations as exact excerpts and update the date/source with any new additions. Replace imagery without renaming paths where possible. No external fonts or UI libraries are loaded. GA4 tags are present on all seven pages.
 
 
 ## SEO & Indexing
@@ -49,7 +49,7 @@ Edit text, recommendation excerpts, image paths and links directly in index.html
 - Submit sitemap.xml after deployment. Use URL Inspection and request indexing for https://amankkamboj.github.io/wordpress-portfolio/.
 - Because this is a project subdirectory, its robots.txt is not the origin-level crawler policy. Only https://amankkamboj.github.io/robots.txt controls crawling for this host. Submit the project sitemap directly in Search Console.
 - Add future case-study URLs to sitemap.xml only once those pages actually exist. No case-study pages were created in this update.
-- The current social photo is 1106 × 1422 pixels. A dedicated 1200 × 630 share image is a future improvement; portrait cropping depends on the sharing platform.
+- The supplied professional portrait is used in a 1200 × 1200 social JPEG and a square Twitter summary card. PNG/ICO favicons and an Apple touch icon use the same portrait.
 - Keep lastmod aligned with significant page changes; do not refresh it simply to appear current. Google ignores priority and changefreq, so these are omitted.
 - scripts/configure-seo.js remains a documented maintenance utility. It updates URLs when moving the site; it is not loaded by visitors.
 
@@ -60,9 +60,12 @@ Five directory-based service pages are included: wordpress-development, woocomme
 
 See SERVICE-PAGES.md for the exact URLs, titles, descriptions and publishing checklist. Authoring sources are scripts/service-content.js and scripts/build-services.js. Run `node scripts/build-services.js` to regenerate the five pages and shared homepage navigation/service cards/footer after editing these sources. No build is required by the deployed website.
 
-Service-page assets use /wordpress-portfolio/assets/ paths. Preview them through a local HTTP server mounted at /wordpress-portfolio/, not by double-clicking a nested index.html. All six URLs are included in sitemap.xml. No lastmod is supplied until an actual deployment date is known. The URL configuration script now discovers directory index pages and retains their sitemap entries.
+Service-page assets use /wordpress-portfolio/assets/ paths. Preview them through a local HTTP server mounted at /wordpress-portfolio/, not by double-clicking a nested index.html. All seven URLs, including migration/maintenance, are included in sitemap.xml. No lastmod is supplied until an actual deployment date is known. The URL configuration script now discovers directory index pages and retains their sitemap entries.
 
 The homepage's real Search Console verification tag is preserved. Security copy describes WordPress/PHP experience and ongoing learning, not a completed cybersecurity certification. A code comment marks where a future verified credential can be added.
 
 ## Homepage certificates
 The Certifications & Continuous Learning section follows About. Four cards use supplied certificate documents and verification links; originals are in assets/certificates and lazy-loaded WebP previews in assets/images/certificates. Titles, exact issue dates and credential types come from the documents. IIRS is labeled as participation, and its verification code is displayed for the issuer form. These are not cybersecurity credentials. Edit this section directly in index.html; the service-page builder preserves it.
+
+## Current generator limitation
+The migration/maintenance page and GA4 integration were added after the original generator. Edit the existing HTML directly until the generator supports these additions; running it currently would overwrite those shared navigation and analytics changes. See the September 27 audit in SEO-REVIEW.md.
