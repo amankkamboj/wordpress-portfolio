@@ -63,3 +63,6 @@ See SERVICE-PAGES.md for the exact URLs, titles, descriptions and publishing che
 Service-page assets use /wordpress-portfolio/assets/ paths. Preview them through a local HTTP server mounted at /wordpress-portfolio/, not by double-clicking a nested index.html. All six URLs are included in sitemap.xml. No lastmod is supplied until an actual deployment date is known. The URL configuration script now discovers directory index pages and retains their sitemap entries.
 
 The homepage's real Search Console verification tag is preserved. Security copy describes WordPress/PHP experience and ongoing learning, not a completed cybersecurity certification. A code comment marks where a future verified credential can be added.
+
+## Homepage certificates
+The Certifications & Continuous Learning section follows About. Four cards use supplied certificate documents and verification links; originals are in assets/certificates and lazy-loaded WebP previews in assets/images/certificates. Titles, exact issue dates and credential types come from the documents. IIRS is labeled as participation, and its verification code is displayed for the issuer form. These are not cybersecurity credentials. Edit this section directly in index.html; the service-page builder preserves it.
