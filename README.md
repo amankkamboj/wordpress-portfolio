@@ -69,3 +69,10 @@ The Certifications & Continuous Learning section follows About. Four cards use s
 
 ## Current generator limitation
 The migration/maintenance page and GA4 integration were added after the original generator. Edit the existing HTML directly until the generator supports these additions; running it currently would overwrite those shared navigation and analytics changes. See the September 27 audit in SEO-REVIEW.md.
+
+## Case studies
+Six anonymized project stories are authored in scripts/case-study-content.js and scripts/additional-case-study-content.js. Run node scripts/build-case-studies.js to rebuild their static pages, homepage previews and the related-service links. This generator uses the existing troubleshooting page as the shared header/footer/metadata template; it does not regenerate the service-page content.
+
+The case-study URLs are top-level directories so scripts/configure-seo.js discovers them when updating production URLs. Each has a unique title, description, canonical, social metadata and WebPage/BreadcrumbList structured data. All thirteen pages are listed in the sitemap.
+
+Keep private source conversations, credentials, client records and draft evidence outside this public repository. Public narratives distinguish client-confirmed acceptance from developer-reported resolution. Do not add numerical results or identify clients without supporting evidence and appropriate permission. Original screenshots can be added later; the current cards use the existing icon system.
