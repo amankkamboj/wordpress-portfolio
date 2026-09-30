@@ -83,3 +83,8 @@ Google Analytics (G-5N5BEMMRD2) loads only after acceptance. The browser prefere
 The homepage features three client-reviewed projects; the six-story hub separates these from technical investigations and reported results. Private evidence stays outside the public repository.
 
 After publishing, verify the live sitemap and page responses, then confirm a consented visit and contact_click in GA4. Local checks mock analytics requests and do not establish real collection, Search Console verification, indexing or rankings.
+
+## Shared service heroes
+All six service pages use the approved navy/cyan hero with a WordPress watermark, curved background lines, three service badges, a developer card and tailored email briefs. Edit scripts/build-service-heroes.js to change hero content; run `node scripts/build-service-heroes.js` after other content generators. The builder replaces only each service hero and preserves page metadata and following sections. Shared styling uses .service-showcase and .showcase-* in assets/css/style.css. This replaces the troubleshooting-only trial styles.
+
+The migration/maintenance hero links to the full case-study collection because no dedicated migration case study is published. The other heroes link to relevant existing stories. Local verification covered all six services at eight viewport widths, with checks for email briefs, existing link targets, SVG symbols, image decoding and overflow. Deployment remains a separate step.
