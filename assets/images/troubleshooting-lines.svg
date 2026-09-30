@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" fill="none">
+  <defs>
+    <linearGradient id="line" x1="300" y1="750" x2="1450" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0074ab" stop-opacity=".08"/>
+      <stop offset=".48" stop-color="#008ad1" stop-opacity=".45"/>
+      <stop offset=".7" stop-color="#00def4" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#0084c9" stop-opacity=".15"/>
+    </linearGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+  <g stroke="url(#line)">
+    <path d="M750 250C820 25 1080-110 1510-100" stroke-width="1.5"/>
+    <path d="M-100 85C60 360 550 260 880 535S1480 860 1760 590" stroke-width="1" opacity=".5"/>
+    <path d="M250 900C620 620 855 680 1110 525S1540 570 1680 220" stroke-width="1.6"/>
+    <path d="M390 870C760 680 930 690 1170 554S1520 615 1700 750" stroke-width="1" opacity=".55"/>
+  </g>
+  <g stroke="#00def4" stroke-linecap="round">
+    <path d="M853 92Q884 62 922 39M739 687L818 660M1546 456Q1570 433 1588 407" stroke-width="8" opacity=".55" filter="url(#glow)"/>
+    <path d="M853 92Q884 62 922 39M739 687L818 660M1546 456Q1570 433 1588 407" stroke-width="1.4" opacity=".8"/>
+  </g>
+</svg>

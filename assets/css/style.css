@@ -2130,6 +2130,9 @@
 /* Troubleshooting hero trial: scoped to this service page. */
 .troubleshooting-hero { position: relative; isolation: isolate; overflow: hidden; padding-bottom: 56px; background: radial-gradient(ellipse at 82% 35%, #00517644, transparent 58%), var(--bg); }
 .troubleshooting-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .2; background-image: radial-gradient(var(--accent-secondary) 1px, transparent 1px); background-size: 20px 20px; mask-image: linear-gradient(90deg, #000, transparent 22%, transparent 80%, #000); }
+.troubleshooting-hero::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url('../images/troubleshooting-lines.svg') center / cover no-repeat; }
+.troubleshooting-hero > .container { position: relative; isolation: isolate; }
+.troubleshooting-hero > .container::before { content: ''; position: absolute; z-index: -1; width: 380px; height: 380px; right: 160px; top: 18px; opacity: .12; background: url('../images/wordpress-watermark.png') center / contain no-repeat; pointer-events: none; }
 .troubleshooting-hero .service-hero-grid { grid-template-columns: minmax(0, 1fr) 320px; gap: 52px; align-items: center; }
 .troubleshooting-hero h1 { font-size: clamp(36px, 4.1vw, 56px); line-height: 1.12; }
 .troubleshooting-hero h1 span { display: block; color: var(--accent); }
@@ -2156,6 +2159,8 @@
 }
 @media (max-width: 760px) {
   .troubleshooting-hero .service-hero-grid { grid-template-columns: 1fr; gap: 34px; }
+  .troubleshooting-hero > .container::before { width: 270px; height: 270px; right: -70px; top: 45px; opacity: .07; }
+  .troubleshooting-hero::after { opacity: .55; background-size: auto 850px; background-position: 65% top; }
   .troubleshooting-hero { padding-bottom: 36px; }
   .troubleshooting-hero .troubleshooting-author { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: start; gap: 22px; }
   .troubleshooting-hero .troubleshooting-author .portrait { width: 120px; height: 145px; margin: 0; }
