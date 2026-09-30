@@ -49,3 +49,14 @@ Google Search chooses one favicon per hostname, not per project subdirectory. De
 Maintenance: edit existing HTML directly for now. The service-page generator covers only the original five service pages and does not preserve the subsequently added analytics or migration/maintenance navigation. Its branding template is updated, but it was not run during this audit. Extend the generator before regenerating the site.
 
 These changes are local and have not been published.
+
+## Marketing and SEO completion review — September 28, 2026
+This entry supersedes older page counts and remaining-content notes above. The site now has fifteen pages: homepage, six services, six anonymized case studies, a case-study hub and privacy page.
+
+Three client-reviewed projects are featured on the homepage. The hub distinguishes these from technical investigations and developer-reported outcomes. Navigation and related links connect the stories and services. A native hiring FAQ answers practical enquiry questions without requiring JavaScript.
+
+Analytics now loads only after acceptance, with persistent accept/decline choices, expiry and withdrawal controls. The contact_click event measures email/LinkedIn actions without claiming completed leads. The privacy page describes this behavior. No private client messages or unsupported numerical results were published in the case studies.
+
+Local validation passed across fifteen pages for metadata, canonicals, headings, structured-data JSON and local links/assets. Browser checks covered twelve responsive layouts, the no-JavaScript FAQ, consent default/decline/accept/persistence/withdrawal/expiry and contact-event contents. External analytics requests were mocked; these checks do not establish real GA4 collection.
+
+The original service-page generator remains obsolete; do not run it. Case-study regeneration must be followed by scripts/build-site-polish.js, as documented in README.md. Deployment, live GA4 verification and Search Console status remain external checks; this review does not confirm them.
