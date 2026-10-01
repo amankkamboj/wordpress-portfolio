@@ -259,7 +259,7 @@ for (const service of services) {
   if (start < 0 || end < 0) throw new Error(`Hero boundaries missing: ${service.slug}`);
   const items = entries => entries.map(([name, label]) => `<li>${icon(name)}${escape(label)}</li>`).join('');
   const author = authorTemplate.replace(/<ul class="showcase-values">[\s\S]*?<\/ul>/, `<ul class="showcase-values">${items(service.values)}</ul>`);
-  const contact = `mailto:amankamboj2387@gmail.com?subject=${encodeURIComponent(service.subject)}&amp;body=${encodeURIComponent(service.brief)}`;
+  const contact = "/wordpress-portfolio/#contact";
   const hero = `<section class="service-hero section service-showcase"><div class="container">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/wordpress-portfolio/">Home</a></li><li><a href="/wordpress-portfolio/#services">Services</a></li><li aria-current="page">${escape(service.breadcrumb)}</li></ol></nav>
 <div class="service-hero-grid"><div class="showcase-intro">

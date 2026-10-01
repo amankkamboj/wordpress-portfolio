@@ -451,13 +451,23 @@
 <path fill="#001727" d="m0 350 240-65 65 30 200-140 60 85 100-45 110 90 140-180 55 115 105-160 65 120 70-35 190 135v50Z"/>
 <path fill="#03415a" opacity=".4" d="m985 45-70 100 70-47 10 34 10-52 55 45Zm-280 75-75 75 66-29 10 18 20-22 54 33Z"/>
 </svg>
-<div class="container contact-content">
-<h2>Have a WordPress problem worth fixing?</h2>
-<p>Share the problem or project you have in mind. We can discuss the scope, questions and next steps before you decide.</p>
-<div class="enquiry-guide"><div><h3>What to include</h3><ul><li>Your website URL, if you have one</li><li>What needs fixing or building</li><li>Your preferred timeline and any budget guidance</li></ul></div><div><h3>What happens next</h3><p>I review your brief and follow up with questions. If a call would help, we can arrange a free 20-minute conversation at a mutually suitable time.</p></div></div><div class="contact-bottom"><div class="button-row"><a class="button primary" href="mailto:amankamboj2387@gmail.com?subject=WordPress%20project%20enquiry&amp;body=Website%20URL%3A%20%0D%0A%0D%0AWhat%20I%20need%20help%20with%3A%20%0D%0A%0D%0APreferred%20timeline%3A%20%0D%0A%0D%0ABudget%20guidance%20(optional)%3A%20">Email Me About Your Project <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button" href="https://www.linkedin.com/in/freelancer-aman-webdeveloper/">Connect on LinkedIn</a></div></div><p class="contact-note">Prefer to write your own message? Use the email address below or connect with me on LinkedIn.</p><a class="contact-email" href="mailto:amankamboj2387@gmail.com">amankamboj2387@gmail.com</a>
-</div>
+<div class="container contact-content enquiry-layout">
+<div class="enquiry-intro"><h2>Have a WordPress problem worth fixing?</h2><p>Tell me what you're working on. I’ll help you identify a practical next step.</p><a class="contact-email" href="mailto:amankamboj2387@gmail.com">amankamboj2387@gmail.com</a><div class="contact-bottom"><a class="button" href="https://www.linkedin.com/in/freelancer-aman-webdeveloper/">Connect on LinkedIn</a></div><p class="contact-note">Working with clients worldwide</p><h3>What happens next</h3><p>I review your brief and follow up with questions. If a call would help, we can arrange a free 20-minute conversation at a mutually suitable time.</p></div>
+<form id="portfolio-enquiry-form" class="enquiry-form" novalidate>
+<h3>Project enquiry form</h3><p class="form-note">Fields marked * are required. Please don’t include passwords or sensitive customer information.</p>
+<div class="form-grid">
+<div class="form-field"><label for="enquiry-name">Name *</label><input id="enquiry-name" name="name" autocomplete="name" maxlength="150" required></div>
+<div class="form-field"><label for="enquiry-email">Email *</label><input id="enquiry-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+<div class="form-field"><label for="enquiry-website">Website URL</label><input id="enquiry-website" name="website" type="url" autocomplete="url" placeholder="https://example.com" maxlength="2000"></div>
+<div class="form-field"><label for="enquiry-service">What do you need help with? *</label><select id="enquiry-service" name="service" required><option value="">Select a service</option><option value="WordPress Development">WordPress Development</option><option value="WooCommerce">WooCommerce</option><option value="WordPress Troubleshooting">WordPress Troubleshooting</option><option value="Performance Optimization">Performance Optimization</option><option value="WordPress Security">WordPress Security</option><option value="Migration &amp; Maintenance">Migration &amp; Maintenance</option><option value="Other">Other</option></select></div>
+<div class="form-field form-wide"><label for="enquiry-budget">Budget / Project Type</label><select id="enquiry-budget" name="budget"><option value="">Select an option (optional)</option><option value="Small fix / hourly task">Small fix / hourly task</option><option value="Project under $500">Project under $500</option><option value="Project $500–$1,500">Project $500–$1,500</option><option value="Project $1,500+">Project $1,500+</option><option value="Ongoing support">Ongoing support</option><option value="Not sure yet">Not sure yet</option></select></div>
+<div class="form-field form-wide"><label for="enquiry-message">Tell me about your project *</label><textarea id="enquiry-message" name="message" rows="5" minlength="20" maxlength="10000" required aria-describedby="enquiry-message-hint"></textarea><small id="enquiry-message-hint">Include at least 20 characters about your goal or the issue.</small></div>
+</div><input type="hidden" name="page_url"><div hidden aria-hidden="true"><label for="enquiry-company">Leave this field empty</label><input id="enquiry-company" name="company_website" tabindex="-1" autocomplete="off"></div>
+<p class="form-note">Your details are sent securely to my enquiry endpoint on Hostinger so I can reply by email. <a href="/wordpress-portfolio/privacy/">Privacy details</a></p>
+<button class="button primary" type="submit">Send Project Enquiry <svg aria-hidden="true"><use href="#arrow"/></svg></button><p id="enquiry-status" class="enquiry-status" role="status" aria-live="polite" aria-atomic="true"></p>
+<noscript><p>This form needs JavaScript. Please <a href="mailto:amankamboj2387@gmail.com">email me directly</a> instead.</p></noscript>
+</form></div>
 </section>
-
 </main>
 <footer class="site-footer">
 <div class="container footer-columns">

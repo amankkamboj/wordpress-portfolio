@@ -61,3 +61,53 @@ function configureReveals() {
 }
 configureReveals();
 motionPreference.addEventListener('change', configureReveals);
+
+// The enquiry endpoint validates submissions independently of these browser checks.
+const enquiryForm = document.querySelector('#portfolio-enquiry-form');
+if (enquiryForm) {
+  const submitButton = enquiryForm.querySelector('[type="submit"]');
+  const status = document.querySelector('#enquiry-status');
+  const pageUrl = enquiryForm.elements.namedItem('page_url');
+  pageUrl.value = window.location.href;
+  let sending = false;
+  enquiryForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (sending) return;
+    status.textContent = '';
+    for (const name of ['name', 'email', 'website', 'message']) {
+      const field = enquiryForm.elements.namedItem(name);
+      field.value = field.value.trim();
+    }
+    if (!enquiryForm.reportValidity()) return;
+    pageUrl.value = window.location.href;
+    const payload = Object.fromEntries(new FormData(enquiryForm));
+    sending = true;
+    submitButton.disabled = true;
+    enquiryForm.setAttribute('aria-busy', 'true');
+    status.textContent = 'Sending…';
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
+    try {
+      const response = await fetch('https://royalblue-salmon-626763.hostingersite.com/portfolio-form/submit.php', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload), signal: controller.signal,
+        credentials: 'omit', referrerPolicy: 'no-referrer'
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) throw new Error('Submission rejected');
+      enquiryForm.reset();
+      pageUrl.value = window.location.href;
+      status.textContent = 'Thanks — your enquiry has been sent successfully.';
+      if (typeof window.gtag === 'function') {
+        try { window.gtag('event', 'generate_lead', { lead_source: 'portfolio_enquiry_form' }); } catch (_) { /* Analytics must not interrupt a successful enquiry. */ }
+      }
+    } catch (_) {
+      status.textContent = 'Your enquiry could not be sent right now. You can also email me directly at amankamboj2387@gmail.com.';
+    } finally {
+      clearTimeout(timeout);
+      sending = false;
+      submitButton.disabled = false;
+      enquiryForm.removeAttribute('aria-busy');
+    }
+  });
+}
