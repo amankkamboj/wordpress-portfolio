@@ -17,6 +17,13 @@
   panel.innerHTML = `<div><h2 id="analytics-heading">Your analytics choice</h2><p>Allow Google Analytics to help me understand which pages and contact links visitors use? It stays off unless you accept. <a href="${siteRoot.pathname}privacy/">Privacy details</a></p></div><div class="analytics-actions"><button type="button" class="button" data-choice="declined">Decline analytics</button><button type="button" class="button" data-choice="accepted">Accept analytics</button></div>`;
   panel.hidden = choice !== null;
   document.body.append(panel);
+  // Retain campaign identifiers without sending arbitrary query strings or fragments.
+  const analyticsUrl = new URL(location.origin + location.pathname);
+  const incomingParams = new URLSearchParams(location.search);
+  for (const name of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id']) {
+    const value = incomingParams.get(name);
+    if (value && /^[a-zA-Z0-9_-]{1,100}$/.test(value)) analyticsUrl.searchParams.set(name, value);
+  }
   function start() {
     if (loaded || choice !== 'accepted') return;
     loaded = true;
@@ -28,7 +35,7 @@
     window.gtag('config', measurementId, {
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
-      page_location: location.origin + location.pathname,
+      page_location: analyticsUrl.href,
       page_referrer: document.referrer ? new URL(document.referrer).origin : ''
     });
     const tag = document.createElement('script');
@@ -79,6 +86,15 @@
     const href = link.getAttribute('href');
     const contactMethod = href.startsWith('mailto:') ? 'email' : /^https:\/\/(www\.)?linkedin\.com\/in\//.test(href) ? 'linkedin' : null;
     if (contactMethod) window.gtag('event', 'contact_click', { contact_method: contactMethod, page_path: location.pathname, transport_type: 'beacon' });
+    if (contactMethod) return;
+    let destination;
+    try { destination = new URL(href, location.href); } catch (_) { return; }
+    if (destination.origin !== location.origin) return;
+    if (destination.hash === '#contact') {
+      window.gtag('event', 'project_cta_click', { page_path: location.pathname, transport_type: 'beacon' });
+    } else if (destination.pathname.startsWith(siteRoot.pathname + 'case-study-')) {
+      window.gtag('event', 'case_study_click', { page_path: location.pathname, destination_path: destination.pathname, transport_type: 'beacon' });
+    }
   });
   start();
 })();
