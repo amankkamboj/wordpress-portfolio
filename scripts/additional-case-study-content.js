@@ -2,6 +2,38 @@
 // Anonymized summaries of documented work. Do not include private messages or access details.
 module.exports = [
   {
+    slug: 'case-study-woocommerce-vendor-workflows',
+    title: 'WC Vendors & WooCommerce Marketplace Case Study | Aman Kumar',
+    heading: 'Improving buyer and seller workflows in a WooCommerce marketplace',
+    description: 'A WooCommerce marketplace case study covering WC Vendors dashboard changes, order notifications, order-linked chat and Gravity Forms workflow repairs.',
+    category: 'WOOCOMMERCE MARKETPLACE CUSTOMIZATION', icon: 'cart',
+    client: 'An existing food marketplace', period: 'November 2025–February 2026',
+    role: 'Custom-plugin fixes, vendor dashboard enhancements and workflow support',
+    tools: ['WordPress', 'WooCommerce', 'WC Vendors Pro', 'Gravity Forms', 'Better Messages'],
+    summary: 'An existing marketplace needed clearer purchased and sold order navigation, better order communication and repairs to its document and email workflows.',
+    outcome: 'Client feedback recognizes dashboard and notification improvements; development updates document form and email repairs in an existing marketplace.',
+    evidence: 'Documented changes and positive client feedback',
+    images: [
+      {file:'marketplace-order-navigation.webp',width:1250,height:499,alt:'Vendor account navigation separating orders purchased from orders sold',caption:'The supplied order screen shows separate routes for purchased and sold orders. Identifiers, dates and amounts are redacted.'},
+      {file:'marketplace-order-notifications.webp',width:396,height:515,alt:'New order received notifications displayed in the marketplace interface',caption:'Order notifications shown in the supplied interface screenshot. Order identifiers are redacted; this does not establish background or browser-closed delivery.'},
+      {file:'marketplace-document-form.webp',width:1001,height:818,alt:'Order document form with distribution center, location, state and carrier fields',caption:'The order document form used in the workflow. Contact and location values are redacted. The image shows the interface, not proof of completed document processing.'}
+    ],
+    flow: ['Review the existing implementation', 'Improve buyer and seller journeys', 'Test and revise with the client'],
+    sections: [
+      ['The marketplace challenge', 'The website combined WC Vendors Pro, WooCommerce, Gravity Forms and an existing custom plugin. The project owner needed a developer to repair and extend that implementation while preserving the way buyers and sellers managed orders.', 'Users could both buy and sell. That made it important to distinguish purchased orders from sold orders and to connect the relevant communication and documents to each order.'],
+      ['My role in the existing system', 'I worked on the custom implementation alongside the project owner. My delivery updates describe dashboard navigation, order-linked chat, notifications, email adjustments and form-link fixes. I did not build the entire marketplace or all of its underlying functionality.', 'The project owner supplied some code and handled other changes, including parts of email content, registration validation and a document-upload status hook. Those contributions are separate from my work.'],
+      ['Clearer vendor navigation and order communication', 'I added clearer routes to purchased and sold orders and reported adding a chat action associated with an order. The supplied order-screen image shows the navigation distinction and order notifications.', 'I also added notifications intended to make new orders more visible in the website interface. The project owner responded positively to the notification updates and later to the clearer order menu. These screenshots demonstrate interface changes; they do not establish how notifications behave when a browser is closed.'],
+      ['Document forms and transactional emails', 'My updates describe correcting Bill of Lading links, improving seller-facing email wording and fixing state-field prepopulation in the order document form. The supplied form screenshot provides interface evidence for the document workflow.', 'Address, order and recipient information needs to remain associated with the correct transaction. The review process surfaced issues in those connections, and I worked through the requested fixes rather than replacing the whole system.'],
+      ['Testing and changing requirements', 'I worked on staging and reported moving upgrades to the live environment for client testing. Subsequent review identified further corrections, which were handled through additional updates.', 'The payment requirement changed during the engagement: an earlier flow delayed payment until seller review, while a later instruction required payment upfront. I reported enabling Stripe at checkout after that change. The supplied record does not establish a final payment-state specification, so this story does not claim a verified delayed-capture or automated split-payment system.'],
+      ['The supported result', 'The record contains positive client feedback on implemented changes and requests for further collaboration. It supports a story about improving an existing marketplace’s interface and connected workflows.', 'The screenshots and delivery updates do not establish measured sales growth, time savings or final acceptance of every workflow. Further follow-up would be needed to verify those outcomes.']
+    ],
+    evidenceNote: 'Based on supplied project conversations and screenshots. Client and website identifiers are withheld. The overview recording includes an earlier payment flow and pending fixes; it is not presented as final acceptance. Public launch and current production behaviour have not been verified.',
+    service: 'woocommerce-development', serviceLabel: 'WooCommerce development',
+    cta: 'Need help with a WooCommerce marketplace?',
+    ctaText: 'Tell me which vendor plugin you use, which buyer or seller journey needs attention and how your existing custom code fits into the workflow.',
+    contactHref: 'mailto:amankamboj2387@gmail.com?subject=WooCommerce%20marketplace%20enquiry&body=Vendor%20plugin%3A%20%0A%0AWorkflow%20to%20improve%3A%20%0A%0APreferred%20timeline%3A%20'
+  },
+  {
     slug: 'case-study-woocommerce-affiliate-tracking',
     title: 'WooCommerce Affiliate Tracking & SliceWP Case Study | Aman Kumar',
     heading: 'Configuring coupon-based affiliate tracking for a WooCommerce store',
@@ -13,6 +45,10 @@ module.exports = [
     summary: 'An existing affiliate program needed coupon-based commission tracking and clearer dashboard access, with store-credit payouts as a separate requirement.',
     outcome: 'Supplied screenshots show a recorded commission and created payout batches; final payout redemption and complete client acceptance remain unverified.',
     evidence: 'Configuration work with supporting screenshots',
+    images: [
+      {file:'affiliate-dashboard.webp',width:1427,height:308,alt:'Affiliate dashboard showing navigation and one recorded commission',caption:'The supplied affiliate dashboard shows one recorded commission and navigation to coupons and payouts. Dates and earnings are redacted; no sales-growth claim is implied.'},
+      {file:'affiliate-payout-batches.webp',width:1649,height:258,alt:'Affiliate payout batches with zero payments marked paid',caption:'Created payout batches with zero payments marked paid. This is evidence of payout records, not completed payments. Identifiers, dates and totals are redacted.'}
+    ],
     flow: ['Review coupon attribution', 'Configure affiliate access', 'Review payout handling'],
     sections: [
       ['The problem', 'The store owner had already installed SliceWP, but reported that affiliate coupon codes were being used without commissions appearing. Affiliates also needed a dashboard where they could review their activity.', 'The requested program used coupon codes for attribution and a 15% commission rule. Store-credit or gift-card payouts were another requirement, and needed to be assessed separately from recording commissions.'],
