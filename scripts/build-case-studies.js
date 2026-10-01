@@ -11,7 +11,7 @@ const template = fs.readFileSync(path.join(root, 'wordpress-troubleshooting/inde
 const escape = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const person = JSON.parse(home.match(/<script type="application\/ld\+json" id="person-schema">([\s\S]*?)<\/script>/)[1]);
 const card = c => `<article class="case-card"><div class="icon-box"><svg aria-hidden="true"><use href="#${c.icon}"/></svg></div><p class="case-category">${escape(c.category)}</p><h3><a href="${prefix}${c.slug}/">${escape(c.heading)}</a></h3><p>${escape(c.summary)}</p><div class="case-card-result"><span>${escape(c.evidence)}</span><p>${escape(c.outcome)}</p></div><a class="case-read" href="${prefix}${c.slug}/">Read case study <span aria-hidden="true">→</span></a></article>`;
-const gallery = c => c.images?.length ? `<section class="case-gallery" id="project-images"><h2>Project screenshots</h2><p>Original supplied screenshots, cropped and redacted for confidentiality. Interface content has not been recreated.</p>${c.images.map(i=>`<figure><a href="${prefix}assets/images/case-studies/${escape(i.file)}" aria-label="View full-size screenshot: ${escape(i.alt)}"><img src="${prefix}assets/images/case-studies/${escape(i.file)}" width="${i.width}" height="${i.height}" alt="${escape(i.alt)}" loading="lazy" decoding="async"></a><figcaption>${escape(i.caption)}</figcaption></figure>`).join('')}</section>` : '';
+const gallery = c => c.images?.length ? `<section class="case-gallery" id="project-images"><h2>Project screenshots</h2><p>Original supplied screenshots, cropped and redacted for confidentiality. Interface content has not been recreated.</p><div class="case-gallery-grid">${c.images.map(i=>`<figure><a href="${prefix}assets/images/case-studies/${escape(i.file)}" data-case-image aria-label="View full-size screenshot: ${escape(i.alt)}"><img src="${prefix}assets/images/case-studies/${escape(i.file)}" width="${i.width}" height="${i.height}" alt="${escape(i.alt)}" loading="lazy" decoding="async"></a><figcaption>${escape(i.caption)}</figcaption></figure>`).join('')}</div></section>` : '';
 for (const c of cases) {
   const url = base + c.slug + '/';
   let page = template.replace(/<title>[\s\S]*?<\/title>/, `<title>${escape(c.title)}</title>`);
@@ -28,8 +28,19 @@ for (const c of cases) {
 <section class="section contact service-contact"><div class="container"><h2>${escape(c.cta)}</h2><p>${escape(c.ctaText)}</p><div class="button-row"><a class="button primary" href="${c.contactHref ? escape(c.contactHref) : prefix+'#contact'}">Discuss Your Project <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button" href="${prefix}${c.service}/">${escape(c.serviceLabel)}</a></div></div></section></main>`;
   page = page.replace(/<main id="main">[\s\S]*?<\/main>/, main);
   if (c.images?.length) {
+    page = page.replace('</head>', `<script src="${prefix}assets/js/case-gallery.js" defer></script>\n</head>`);
     page = page.replace('<a href="#evidence">Evidence and scope</a>', '<a href="#project-images">Project screenshots</a><a href="#evidence">Evidence and scope</a>');
-    page = page.replace('<section class="case-evidence" id="evidence">', gallery(c)+'<section class="case-evidence" id="evidence">');
+    const imageAnchor = c.polished ? '<section class="service-copy-section" id="section-5">' : '<section class="case-evidence" id="evidence">';
+    page = page.replace(imageAnchor, gallery(c)+imageAnchor);
+  }
+  if (c.polished) {
+    const proof = '<section class="container case-proof" aria-label="Project summary">'+c.proofCards.map(([title,copy])=>'<article><h2>'+escape(title)+'</h2><p>'+escape(copy)+'</p></article>').join('')+'</section>';
+    page = page.replace('<div class="container service-reading-layout">',proof+'<div class="container service-reading-layout">');
+    page = page.replace(/<div class="case-outcome">[\s\S]*?<\/div>/, '');
+    page = page.replace('class="service-copy-section" id="section-2"','class="service-copy-section case-role" id="section-2"');
+    page = page.replace('<body class="service-page case-study-page">','<body class="service-page case-study-page case-polished">');
+    page = page.replace('<a href="#project-images">Project screenshots</a>', '');
+    page = page.replace('<a href="#section-5">Testing and changing requirements</a>', '<a href="#project-images">Project screenshots</a><a href="#section-5">Testing and changing requirements</a>');
   }
   fs.mkdirSync(path.join(root,c.slug),{recursive:true});
   fs.writeFileSync(path.join(root,c.slug,'index.html'),page);
