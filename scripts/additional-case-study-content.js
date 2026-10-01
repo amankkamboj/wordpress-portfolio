@@ -2,6 +2,32 @@
 // Anonymized summaries of documented work. Do not include private messages or access details.
 module.exports = [
   {
+    slug: 'case-study-woocommerce-affiliate-tracking',
+    title: 'WooCommerce Affiliate Tracking & SliceWP Case Study | Aman Kumar',
+    heading: 'Configuring coupon-based affiliate tracking for a WooCommerce store',
+    description: 'A WooCommerce affiliate case study covering SliceWP configuration, coupon-based commission tracking, dashboard navigation and payout workflow review.',
+    category: 'WOOCOMMERCE AFFILIATE INTEGRATION', icon: 'cart',
+    client: 'An existing WooCommerce store', period: 'December 2025–January 2026',
+    role: 'SliceWP configuration, dashboard access and payout workflow support',
+    tools: ['WordPress', 'WooCommerce', 'SliceWP', 'Coupon-based tracking'],
+    summary: 'An existing affiliate program needed coupon-based commission tracking and clearer dashboard access, with store-credit payouts as a separate requirement.',
+    outcome: 'Supplied screenshots show a recorded commission and created payout batches; final payout redemption and complete client acceptance remain unverified.',
+    evidence: 'Configuration work with supporting screenshots',
+    flow: ['Review coupon attribution', 'Configure affiliate access', 'Review payout handling'],
+    sections: [
+      ['The problem', 'The store owner had already installed SliceWP, but reported that affiliate coupon codes were being used without commissions appearing. Affiliates also needed a dashboard where they could review their activity.', 'The requested program used coupon codes for attribution and a 15% commission rule. Store-credit or gift-card payouts were another requirement, and needed to be assessed separately from recording commissions.'],
+      ['My contribution', 'I reviewed the existing configuration and reported correcting the tracking issue. I shared a demonstration with test cases, and the client approved the initial milestone. The supplied dashboard screenshot shows one recorded commission.', 'I also reported adding account navigation and redirecting logged-in affiliates to their dashboard. This work focused on the existing affiliate setup rather than designing or building the whole storefront. The available evidence does not establish the precise code changes or verify the commission rate across every order scenario.'],
+      ['Tracking and payouts are separate workflows', 'A recorded commission establishes an affiliate earning in the system. Creating a payout batch is a further step, and does not by itself establish that the affiliate received usable store credit.', 'The supplied SliceWP payout screenshot shows created batches with zero payments marked paid. It supports the existence of payout records, but cannot be used as evidence of completed payments. My later updates described coupon generation associated with payouts; the final redemption behaviour still needs verification.'],
+      ['Testing, revisions and handover', 'The conversation records demonstrations, a walkthrough meeting and further payout investigation. The client later reported inconsistent coupon amounts and codes that did not work. The client also reported correcting one affiliate’s coupon herself.', 'I sent an additional dashboard video on January 6 after requests for clearer instructions. That establishes delivery of another walkthrough, but the supplied record does not contain subsequent confirmation that the full payout workflow was accepted or working end to end.'],
+      ['What this project demonstrates', 'The supported experience is practical work with an existing WooCommerce affiliate program: configuration review, coupon-based attribution, affiliate access and payout troubleshooting.', 'For a similar project, I would agree on separate checks for commission attribution, the affiliate dashboard, payout amounts and credit redemption. A useful handover should let the store owner repeat the process without developer assistance.']
+    ],
+    evidenceNote: 'Based on the supplied December 2025–January 2026 conversation and two screenshots. Initial milestone approval is distinct from final acceptance. No sales increase, successful automated payout process or resolved login issue is claimed. Private account details and messages are excluded.',
+    service: 'woocommerce-development', serviceLabel: 'WooCommerce development',
+    cta: 'Need help with WooCommerce affiliate tracking?',
+    contactHref: 'mailto:amankamboj2387@gmail.com?subject=WooCommerce%20affiliate%20tracking%20enquiry&body=Store%20URL%3A%20%0A%0AAffiliate%20plugin%3A%20%0A%0AWhat%20is%20not%20working%3A%20%0A%0APreferred%20timeline%3A%20',
+    ctaText: 'Share your affiliate plugin, how referrals are attributed and where the workflow fails. We can discuss configuration, testing and the handover your team needs.'
+  },
+  {
     slug: 'case-study-woocommerce-product-filters',
     title: 'WooCommerce Product Filter Case Study | Aman Kumar',
     heading: 'Helping shoppers find products by manufacturer and model',

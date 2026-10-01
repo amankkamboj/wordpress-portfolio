@@ -48,12 +48,12 @@ const services = [
     "slug": "woocommerce-development",
     "breadcrumb": "WooCommerce Development",
     "title": "WooCommerce",
-    "accent": "Development",
-    "lead": "Make your store work for your products and customers. I build and improve WooCommerce functionality, from product discovery and checkout to the integrations behind each order.",
+    "accent": "Developer",
+    "lead": "Need a WooCommerce developer for your store? I build custom plugins and extensions, improve product discovery and checkout, connect external services and investigate store issues.",
     "badges": [
       [
         "cart",
-        "Product discovery"
+        "Custom plugins"
       ],
       [
         "gear",

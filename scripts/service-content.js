@@ -36,7 +36,7 @@ sections:[
 ]},
 {
 slug:'woocommerce-development',label:'WooCommerce Development',icon:'cart',
-title:'WooCommerce Developer | Custom WooCommerce Development | Aman Kumar',description:'WooCommerce development for custom stores, checkout improvements, integrations, product functionality, bug fixes and performance optimization.',h1:'WooCommerce Development',
+title:'WooCommerce Developer & Plugin Development | Aman Kumar',description:'Hire Aman Kumar for WooCommerce plugin development, checkout customization, store integrations and bug fixes. Explore project work and discuss your store.',h1:'WooCommerce Developer',
 intro:['I work directly with existing WooCommerce stores as well as new builds, from product functionality to checkout issues and integrations.','Many store requirements go beyond standard plugin settings. I use PHP, WordPress hooks, APIs and custom code where appropriate, with attention to the complete order journey.'],
 cta:'Discuss Your WooCommerce Store',ctaHeading:'What does your store need to do better?',ctaText:'Share your store URL, the product or checkout workflow involved, and the result you want customers or your team to achieve.',related:[0,2,3],
 sections:[
@@ -60,6 +60,8 @@ sections:[
 'A staging copy helps reproduce checkout or order issues without disturbing customers. Where that is not available, the diagnostic approach needs to be planned around the live store. I discuss access and backups before changes, and distinguish a confirmed cause from something that still needs testing.',
 'After a fix, I check related workflows rather than stopping at the original symptom. For example, a cart change may affect totals, shipping selection and order emails. The objective is to restore the intended behaviour while keeping unrelated store functions stable.'
 ]],
+["WooCommerce plugin and extension development",["When standard settings do not cover your workflow, I can develop a focused WooCommerce plugin or extend an existing one through supported hooks and filters. Examples include custom product fields, checkout rules, order information and connections to external services.","I start by reviewing the plugins already in your store and defining the behaviour you need. Compatibility checks depend on your WooCommerce version, checkout type and connected extensions. We agree on representative product, cart and order scenarios before implementation.","Share your store URL, the feature you need, your current plugins and your target timeline. I review the requirement with you so we can agree on scope before development. For examples of related work, explore the checkout integration and product-filter case studies below."]],
+["WooCommerce affiliate setup and tracking",["I can review an existing affiliate plugin setup, coupon-based attribution and affiliate dashboard access. Commission recording and payout handling need separate checks, including the amounts, order states and credit redemption involved. We agree on the required workflow and test cases before implementation.","See the WooCommerce affiliate tracking case study for configuration work, dashboard evidence and the limits of the recorded payout results."]],
 ['Performance that respects a dynamic store',[
 'A WooCommerce shop cannot be cached in exactly the same way as a static information page. Carts, checkout, accounts and customer sessions contain dynamic or personal information. Optimizations must preserve those boundaries and respect the behaviour of the active plugins and hosting setup.',
 'I investigate product images, frontend assets, expensive database work and plugin overhead. Reducing unnecessary work can help, but changes need to be measured on the actual store. Third-party payment, chat or marketing scripts may limit what can be improved without changing functionality.',
@@ -67,7 +69,7 @@ sections:[
 ]]
 ]},
 {
-slug:'wordpress-troubleshooting',label:'WordPress Troubleshooting',icon:'tools',title:'WordPress Troubleshooting & Bug Fixes | Aman Kumar',description:'WordPress troubleshooting for plugin conflicts, PHP errors, broken layouts, database issues, migrations, integrations and difficult website problems.',h1:'WordPress Troubleshooting & Bug Fixes',
+slug:'wordpress-troubleshooting',label:'WordPress Troubleshooting',icon:'tools',title:'WordPress Troubleshooting & Bug Fixes | Aman Kumar',description:'Fix WordPress issues with Aman Kumar: plugin conflicts, PHP errors, broken forms and layouts. See troubleshooting work and send the problem for review.',h1:'WordPress Troubleshooting & Bug Fixes',
 intro:["Some WordPress problems aren’t solved by installing another plugin.",'I investigate the underlying cause, isolate the issue and implement a practical fix without unnecessarily rebuilding the website.'],
 cta:"Tell Me What’s Broken",ctaHeading:'Let’s start with the problem you can see.',ctaText:'Send the affected URL, the steps that trigger the issue and any recent changes. A screenshot or the exact error message can help; please do not email passwords.',related:[0,3,4],
 sections:[
