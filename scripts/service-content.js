@@ -29,7 +29,7 @@ sections:[
 'Enhancements might involve a cleaner content template, a more useful admin screen or a better mobile interaction. I use a staging copy where available and agree on the pages and workflows that need checking. Existing URLs and important user journeys should be considered before a replacement goes live.'
 ]],
 ['Working directly with your developer',[
-'I am a WordPress and PHP developer based in Chandigarh, India, working remotely with clients worldwide. My focus is on investigating the requirement, explaining the practical options and implementing a solution that remains manageable after the initial work is complete.',
+'I am a WordPress and PHP developer based in Yamuna Nagar, India, working remotely with clients worldwide. My focus is on investigating the requirement, explaining the practical options and implementing a solution that remains manageable after the initial work is complete.',
 'At the start, we define what success looks like: which user actions must work, what information should be stored and which existing features must remain intact. I can then explain the scope, dependencies and any questions that require further investigation before an estimate is useful.',
 'For an existing codebase, I first read the relevant implementation rather than assuming it follows a standard setup. At handover, I explain the changes, where they live and what needs attention during future updates. You can also review the live websites and client recommendations on my portfolio.'
 ]]

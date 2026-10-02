@@ -57,7 +57,7 @@ for (const serviceSlug of new Set(cases.map(c=>c.service))) {
 const previews = `<!-- CASE-STUDIES START --><section id="case-studies" class="section case-studies"><div class="container"><div class="section-heading"><div><p class="eyebrow">BEHIND THE WORK</p><h2>Real problems.<br><span>Practical solutions.</span></h2></div><p class="section-intro">Explore the brief, the work and the outcome. These project stories explain my contribution and the evidence behind each result.</p></div><div class="case-grid">${cases.filter(c=>c.evidence.startsWith('Client')).map(card).join('')}</div><a class="button case-all-link" href="${prefix}case-studies/">Explore all case studies <span aria-hidden="true">→</span></a></div></section><!-- CASE-STUDIES END -->`;
 home = home.includes('<!-- CASE-STUDIES START -->') ? home.replace(/<!-- CASE-STUDIES START -->[\s\S]*?<!-- CASE-STUDIES END -->/,previews) : home.replace('<section id="work"',previews+'\n<section id="work"');
 home = home.replace('<a class="button" href="#work">Explore My Work</a>', '<a class="button" href="#case-studies">Read Case Studies</a>');
-if (!home.includes('<a href="#case-studies">Case Studies</a>')) home = home.replace('<a href="#work">Portfolio</a>', '<a href="#work">Portfolio</a><a href="#case-studies">Case Studies</a>');
+if (!/<a href="(?:#case-studies|\/wordpress-portfolio\/case-studies\/)">Case Studies<\/a>/.test(home)) home = home.replace('<a href="#work">Portfolio</a>', '<a href="#work">Portfolio</a><a href="#case-studies">Case Studies</a>');
 fs.writeFileSync(homeFile,home);
 const sitemapFile = path.join(root,'sitemap.xml');
 let sitemap = fs.readFileSync(sitemapFile,'utf8');
