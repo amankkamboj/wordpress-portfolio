@@ -2,6 +2,38 @@
 // Anonymized summaries of documented work. Do not include private messages or access details.
 module.exports = [
   {
+    slug: 'case-study-wordpress-quiz-funnel',
+    title: 'WordPress Quiz Funnel, GetResponse & ClickBank Case Study | Aman Kumar',
+    heading: 'Redesigning a WordPress quiz funnel for a clearer visitor journey',
+    description: 'A custom PHP WordPress funnel redesign with a seven-step quiz, GetResponse integration and ClickBank checkout integration. Includes original interface evidence.',
+    category: 'WORDPRESS FUNNEL DEVELOPMENT', icon: 'document',
+    client: 'A spiritual self-reflection website',
+    period: 'August 2026 (V2 redesign)',
+    role: 'Original funnel development, redesign and custom PHP integrations',
+    tools: ['WordPress', 'Custom PHP', 'GetResponse', 'ClickBank', 'Multi-step quiz'],
+    summary: 'I redesigned an existing quiz funnel to introduce the offer more clearly, guide visitors through seven questions and connect the journey to email marketing and checkout.',
+    outcome: 'I report that the client preferred the redesign and that conversions improved while advertising costs decreased. Comparable campaign measurements have not yet been supplied.',
+    evidence: 'Developer-reported outcome with interface evidence',
+    images: [
+      {file:'quiz-funnel-original.webp',width:1266,height:331,alt:'Original inline quiz with numbered progress and a response slider',caption:'Before: the original inline quiz and numbered progress indicator. Branding and the surrounding promotional headline are excluded from this crop.'},
+      {file:'quiz-funnel-redesigned-landing.webp',width:1540,height:1250,alt:'Redesigned quiz landing page with a prominent start button and three introduction cards',caption:'After: the redesigned introduction, start button and three summary cards. This is the supplied interface, including its original copy; it is not evidence of the accuracy or security of the advertised product.'},
+      {file:'quiz-funnel-redesigned-quiz.webp',width:1301,height:698,alt:'Redesigned seven-step quiz dialog with progress, a response slider and previous and next controls',caption:'After: a contained seven-step quiz with progress and navigation controls. The browser chrome, website address and client branding are excluded.'}
+    ],
+    flow: ['Review the existing funnel', 'Redesign the introduction and quiz', 'Connect email marketing and checkout'],
+    sections: [
+      ['The WordPress funnel challenge', 'I had previously developed the original quiz page. The client was concerned about conversion performance and advertising costs, and I reviewed the visitor journey and presentation before preparing a replacement funnel.', 'The goal was to make the offer and next action easier to understand while retaining the quiz and its connected marketing workflow. This was custom WordPress funnel work rather than a WooCommerce store build.'],
+      ['My role and implementation', 'My work covered the original page, the new funnel design and its implementation using WordPress and custom PHP. I also integrated GetResponse for the email-marketing workflow and ClickBank for the order checkout connection.', 'These integration details are based on my project account. The supplied images demonstrate the interface; they do not independently verify subscriber creation, email delivery, payment processing or order fulfillment.'],
+      ['A clearer landing-page introduction', 'The original page presented the quiz directly. The redesigned version introduces the offer first, places a prominent start button alongside the main visual and adds short cards explaining what visitors can expect from the experience.', 'The new introduction separates the explanation from the questions. Visitors can choose to start the quiz after reviewing the page instead of encountering the first question as the main opening content.'],
+      ['A contained seven-step quiz', 'The redesigned quiz opens in a contained dialog. The supplied screenshot shows a seven-step progress indicator, a current-question label, a response slider, previous and next buttons, and a close control.', 'These visible controls give the visitor clearer context about the current step and the remaining journey. A complete accessibility or cross-device audit is not established by the screenshot.'],
+      ['Email marketing and checkout connections', 'The implementation connected the quiz funnel to GetResponse and the ClickBank order checkout flow. The publicly visible redesigned page includes a name-and-email results step, supporting the lead-capture part of the journey.', 'For this type of funnel, subscriber capture, results delivery, the checkout handoff and fulfillment are separate behaviors that need their own checks. A visible success message or a checkout link alone should not be treated as proof that every downstream action completed.'],
+      ['The reported result and advertising scope', 'I report that the client liked the new design and that it performed better, with improved conversion and reduced advertising costs. No conversion percentage, cost reduction, test duration or revenue figure is claimed here because comparable campaign data has not yet been supplied.', 'The redesign was prepared with promotional content concerns in mind. This case study does not certify compliance or claim verified approval by Meta, Google Ads or YouTube. Platform review considers the advertisement, destination, offer and account context; a design change alone cannot establish approval.']
+    ],
+    evidenceNote: 'Based on my supplied project account, the August 2026 redesign date, three original screenshots and a read-only review of the two public page versions. Client logos, URLs and browser information are omitted from the public image crops. The original interface is preserved rather than recreated. Conversion improvement, lower ad costs and client preference are developer-reported; campaign exports, approval records, integration logs and final client feedback have not been independently reviewed. The case study concerns development and user experience, not validation of spiritual, health, financial, privacy or security claims made by the product.',
+    service: 'wordpress-development', serviceLabel: 'Custom WordPress development',
+    cta: 'Need a custom WordPress quiz or lead-generation funnel?',
+    ctaText: 'Share the visitor journey, your email platform and checkout requirements. We can define the landing page, quiz, integrations and the checks needed before launch.'
+  },
+  {
     slug: 'case-study-woocommerce-vendor-workflows',
     title: 'WC Vendors & WooCommerce Marketplace Case Study | Aman Kumar',
     heading: 'Improving WooCommerce buyer and seller workflows',
