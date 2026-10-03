@@ -11,7 +11,7 @@ const template = fs.readFileSync(path.join(root, 'wordpress-troubleshooting/inde
 const escape = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const person = JSON.parse(home.match(/<script type="application\/ld\+json" id="person-schema">([\s\S]*?)<\/script>/)[1]);
 const card = c => `<article class="case-card"><div class="icon-box"><svg aria-hidden="true"><use href="#${c.icon}"/></svg></div><p class="case-category">${escape(c.category)}</p><h3><a href="${prefix}${c.slug}/">${escape(c.heading)}</a></h3><p>${escape(c.summary)}</p><div class="case-card-result"><span>${escape(c.evidence)}</span><p>${escape(c.outcome)}</p></div><a class="case-read" href="${prefix}${c.slug}/">Read case study <span aria-hidden="true">→</span></a></article>`;
-const gallery = c => c.images?.length ? `<section class="case-gallery" id="project-images"><h2>Project screenshots</h2><p>Original supplied screenshots, cropped and redacted for confidentiality. Interface content has not been recreated.</p><div class="case-gallery-grid">${c.images.map(i=>`<figure><a href="${prefix}assets/images/case-studies/${escape(i.file)}" data-case-image aria-label="View full-size screenshot: ${escape(i.alt)}"><img src="${prefix}assets/images/case-studies/${escape(i.file)}" width="${i.width}" height="${i.height}" alt="${escape(i.alt)}" loading="lazy" decoding="async"></a><figcaption>${escape(i.caption)}</figcaption></figure>`).join('')}</div></section>` : '';
+const gallery = c => c.images?.length ? `<section class="case-gallery${c.wideEvidence ? ' case-gallery-evidence' : ''}" id="project-images"><h2>${escape(c.galleryHeading || 'Project screenshots')}</h2><p>${escape(c.galleryIntro || 'Original supplied screenshots, cropped and redacted for confidentiality. Interface content has not been recreated.')}</p><div class="case-gallery-grid">${c.images.map(i=>`<figure><a href="${prefix}assets/images/case-studies/${escape(i.file)}" data-case-image aria-label="View full-size screenshot: ${escape(i.alt)}"><img src="${prefix}assets/images/case-studies/${escape(i.file)}" width="${i.width}" height="${i.height}" alt="${escape(i.alt)}" loading="lazy" decoding="async"></a><figcaption>${escape(i.caption)}</figcaption></figure>`).join('')}</div></section>` : '';
 for (const c of cases) {
   const url = base + c.slug + '/';
   let page = template.replace(/<title>[\s\S]*?<\/title>/, `<title>${escape(c.title)}</title>`);
@@ -29,7 +29,7 @@ for (const c of cases) {
   page = page.replace(/<main id="main">[\s\S]*?<\/main>/, main);
   if (c.images?.length) {
     page = page.replace('</head>', `<script src="${prefix}assets/js/case-gallery.js" defer></script>\n</head>`);
-    page = page.replace('<a href="#evidence">Evidence and scope</a>', '<a href="#project-images">Project screenshots</a><a href="#evidence">Evidence and scope</a>');
+    page = page.replace('<a href="#evidence">Evidence and scope</a>', `<a href="#project-images">${escape(c.galleryHeading || 'Project screenshots')}</a><a href="#evidence">Evidence and scope</a>`);
     const imageAnchor = c.polished ? '<section class="service-copy-section" id="section-5">' : '<section class="case-evidence" id="evidence">';
     page = page.replace(imageAnchor, gallery(c)+imageAnchor);
   }
