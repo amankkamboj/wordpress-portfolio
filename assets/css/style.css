@@ -2028,6 +2028,56 @@
 .feedback-endorsements { margin: 20px 0; }
 .feedback-endorsements strong { margin-left: 8px; color: var(--accent-secondary); }
 .feedback-card details summary { cursor: pointer; padding: 12px 0; }
+.feedback-page .feedback-hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); background: radial-gradient(ellipse at 75% 30%,#00696345,transparent 52%),radial-gradient(ellipse at 35% 0%,#00364c80,transparent 65%); }
+.feedback-hero-layout { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 64px; }
+.feedback-hero h1 { font-size: clamp(40px,4.5vw,64px); line-height: 1.08; margin: 20px 0; letter-spacing: -1.5px; }
+.feedback-hero h1 span { color: var(--accent-secondary); }
+.feedback-hero .case-lead { font-size: 22px; line-height: 1.5; }
+.feedback-hero-copy { max-width: 520px; margin: 16px 0 24px; line-height: 1.7; }
+.feedback-proof-points { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); list-style: none; padding: 0; margin: 30px 0 0; gap: 16px; }
+.feedback-proof-points strong { display: block; font-size: 14px; color: var(--text); }
+.feedback-proof-points span { display: block; font-size: 12px; margin-top: 6px; line-height: 1.5; }
+.feedback-hero-art { position: relative; padding: 24px 0 0; }
+.feedback-hero-art::before { content: ''; position: absolute; inset: 0 16px 50px; transform: rotate(-7deg); border: 1px solid #00cbaa; border-radius: 24px; background: linear-gradient(130deg,#008d7166,#003345); }
+.feedback-hero-panel { position: relative; padding: 28px; border: 1px solid #4ca59e; border-radius: 22px; background: linear-gradient(145deg,#0b2d3e,#001b2b); box-shadow: 0 22px 70px #0005; transform: rotate(-2deg); }
+.feedback-feature-rating { font-size: 40px; font-weight: 800; color: var(--accent-secondary); margin: 12px 0; }
+.feedback-feature-rating span { margin-left: 10px; font-size: 14px; color: var(--text); font-weight: 400; }
+.feedback-hero-panel blockquote { margin: 18px 0; font-size: 19px; line-height: 1.6; color: var(--text); }
+.feedback-hero-panel > p:not(.eyebrow):not(.feedback-feature-rating) { font-size: 14px; line-height: 1.7; }
+.feedback-hero-panel img { display: block; width: 100%; height: auto; border-radius: 8px; margin-top: 20px; }
+.feedback-art-caption { position: relative; text-align: right; margin: 24px 8px 0; font-size: 14px; color: var(--accent-secondary); }
+.feedback-insights { padding: 40px 0 0; }
+.feedback-endorsement-grid { list-style: none; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; padding: 0; margin: 20px 0; }
+.feedback-endorsement-grid li { display: flex; align-items: center; gap: 14px; padding: 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; }
+.feedback-endorsement-grid strong { margin-left: auto; color: var(--accent-secondary); }
+.feedback-symbol { font-size: 25px; color: var(--accent-secondary); }
+.feedback-page .feedback-reviews { padding-top: 40px; }
+.feedback-page .feedback-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.feedback-page .feedback-grid .feedback-card { display: flex; flex-direction: column; padding: 20px; position: relative; }
+.feedback-page .feedback-card[hidden] { display: none; }
+.feedback-page .feedback-grid h3 { font-size: 17px; line-height: 1.5; padding-right: 20px; }
+.feedback-page .feedback-grid .eyebrow { font-size: 10px; margin: 0 0 10px; }
+.feedback-review-meta { display: flex; flex-wrap: wrap; gap: 8px 12px; font-size: 12px; line-height: 1.6; }
+.feedback-review-meta .feedback-rating { font-weight: 700; }
+.feedback-page .feedback-grid blockquote { font-size: 14px; line-height: 1.65; margin: 14px 0 18px; }
+.feedback-no-comment { font-size: 13px; margin: 14px 0 18px; }
+.feedback-evidence-link { display: block; margin-top: auto; }
+.feedback-page .feedback-evidence-link img { margin-top: 0; }
+.feedback-expand { position: absolute; top: 18px; right: 16px; border-radius: 50%; background: #123340; width: 26px; height: 26px; display: grid; place-items: center; color: var(--text); }
+.feedback-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.feedback-filters[hidden] { display: none; }
+.feedback-filters button { font: inherit; font-size: 13px; color: var(--text); background: transparent; border: 1px solid var(--border); padding: 9px 18px; border-radius: 24px; cursor: pointer; }
+.feedback-filters button[aria-pressed="true"] { color: #001b2b; background: var(--accent-secondary); border-color: var(--accent-secondary); }
+.feedback-filters button:focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 3px; }
+.feedback-results,.feedback-source-note { font-size: 13px; line-height: 1.6; }
+.feedback-results { margin-bottom: 20px; }
+.feedback-source-note { margin-top: 24px; }
+.feedback-image-modal { width: min(1100px,calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 24px; background: #001b2b; color: var(--text); border: 1px solid var(--accent-secondary); border-radius: 12px; overflow: auto; }
+.feedback-image-modal::backdrop { background: #000c; }
+.feedback-image-modal img { display: block; width: 100%; height: auto; margin-top: 20px; border-radius: 6px; }
+.feedback-image-modal button { display: block; margin-left: auto; }
+@media(max-width:1000px) { .feedback-hero-layout { gap: 32px; } .feedback-page .feedback-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .feedback-endorsement-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) { .feedback-page .feedback-hero { padding: 48px 0; } .feedback-hero-layout { grid-template-columns: 1fr; gap: 40px; } .feedback-hero-art { max-width: 500px; width: 100%; margin: auto; } .feedback-hero-panel { padding: 22px; transform: none; } .feedback-page .feedback-grid,.feedback-endorsement-grid { grid-template-columns: 1fr; } .feedback-proof-points { gap: 12px; } .feedback-hero .case-lead { font-size: 19px; } .feedback-feature-rating { font-size: 34px; } }
 .feedback-modal { width: min(900px,calc(100% - 32px)); max-height: calc(100dvh - 40px); padding: 28px; border: 1px solid var(--accent-secondary); border-radius: 16px; background: #001b2b; color: var(--text); overflow: auto; }
 .feedback-modal::backdrop { background: #000b; }
 .feedback-modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 24px; }
