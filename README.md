@@ -92,3 +92,8 @@ The migration/maintenance hero links to the full case-study collection because n
 ## Anonymized WooCommerce evidence
 
 Eight case studies now include vendor-workflow and affiliate-tracking stories. The two new stories use five supplied screenshots with exact cropping and opaque redaction. Public WebP assets contain no client logos, website URLs, order IDs, contact/location values or financial amounts. Source screenshots and conversations remain outside the repository. Gallery captions distinguish UI evidence from unverified final outcomes. Rebuild with build-case-studies, build-site-polish and build-service-heroes in that order. Seventeen pages are now included in sitemap.xml.
+# SAV Associates recovery case study
+
+The new `/case-study-wordpress-malware-removal/` page uses the supplied recovery account and accessible Rudraksh-project chat. The homepage screenshot records public availability; the persistence SVG is labelled as an illustration. Original incident screenshots were unavailable, so no terminal evidence has been fabricated.
+
+After running the general case-study generator, run `node scripts/build-sav-recovery.cjs` to restore this dedicated page and its homepage, index and service-page cards. Browser layout checks: `node scripts/check-sav-layout.cjs` (bundled Playwright and installed Edge). Publication dates refer to the case study, not the incident start date.
