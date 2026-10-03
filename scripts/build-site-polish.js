@@ -38,3 +38,4 @@ for(const dir of dirs){const file=path.join(root,dir,'index.html');let html=fs.r
 // Do not assert deployment dates. All current static pages remain discoverable.
 fs.writeFileSync(path.join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${dirs.map(d=>`  <url><loc>${base+d}</loc></url>`).join('\n')}\n</urlset>\n`);
 console.log(`Applied site improvements across ${dirs.length} pages.`);
+require('./build-client-feedback');
