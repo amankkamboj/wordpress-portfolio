@@ -1,0 +1,46 @@
+// Run after the general case-study generators. Enhances only the Stripe Tax case.
+const fs=require('node:fs');
+const file='case-study-woocommerce-stripe-tax/index.html';
+const c=require('./case-study-content').find(c=>c.slug==='case-study-woocommerce-stripe-tax');
+const prefix='/wordpress-portfolio/';
+const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+let html=fs.readFileSync(file,'utf8');
+html=html.replace('<main id="main">','<main id="main" tabindex="-1">');
+html=html.replace(/(<dt>Client context<\/dt><dd>)[^<]*/, '$1'+c.client).replace(/(<dt>Project period<\/dt><dd>)[^<]*/, '$1'+c.period);
+html=html.replace(/<section class="stripe-store-context">[\s\S]*?<\/section>/g,'');
+const hero=`<section class="stripe-store-context"><div class="container"><figure><div class="stripe-browser-bar">irreconcilabledifferences.com · Apparel storefront</div><a href="${prefix}assets/images/case-studies/irreconcilable-differences-store.webp"><img src="${prefix}assets/images/case-studies/irreconcilable-differences-store.webp" width="1440" height="960" fetchpriority="high" alt="Irreconcilable Differences public apparel storefront"></a><figcaption>Public storefront captured October 4, 2026. The integration work took place in April 2026.</figcaption></figure><a class="button" href="https://irreconcilabledifferences.com/" target="_blank" rel="noopener noreferrer">Visit Client Store ↗</a></div></section>`;
+html=html.replace('<div class="container service-reading-layout">',hero+'<div class="container service-reading-layout">');
+const sections=[
+ ['The problem','Irreconcilable Differences is an apparel store running WordPress and WooCommerce. The owner had disconnected Avalara and wanted the existing Stripe account connected to Stripe Tax for checkout calculations and reporting.','My scope was to connect the tax integration, review the payment setup, test checkout behaviour and explain the configuration. The client planned to handle tax filing and remittance separately.'],
+ ['My role and approach','I reviewed the existing third-party Stripe payment gateway and changed the payment integration as part of the agreed setup. I connected the tax component through the WooCommerce Tax app in Stripe and the store’s Stripe Tax settings.','The owner completed the account-level app installation and provided the permissions needed to finish the connection. I disabled the previous Stripe gateway and reviewed the payment options to reduce overlap.'],
+ ['Testing and revisions','I tested checkout in Stripe test mode and reviewed the tax configuration with the client. The supplied April 8 cart screenshot shows the store’s product, cart totals and payment options, with tax displayed as $0.00 for that particular cart. It is a snapshot of the review process, not a completed order or proof that the tax result was correct.','The client clarified that Apple Pay and Google Pay should remain available. I revised the payment options and worked through a California tax configuration the client questioned. On April 10, the client reported that California addresses no longer added tax under the reviewed configuration and that the wallet options were connected.','Those configuration decisions were reviewed with the owner. This case study does not present state registration choices or thresholds as legal or tax advice.'],
+ ['The outcome','On April 10, the client accepted the reviewed setup, approved the milestone and authorized live use. On April 13, I confirmed that Stripe was live and the client acknowledged the update.','I delivered the walkthrough video on April 29. On April 30, the client confirmed that it was helpful and that they were happy with the work. A successful live customer purchase is not independently documented in the supplied conversation.'],
+ ['What this project demonstrates','The work combined payment and tax integration, iterative checkout review and a practical handover. Clarifying the owner’s payment-method preferences was as important as establishing the connection.','The integration scope was technical configuration and testing. Tax registration, filing and remittance remained the owner’s responsibility.']
+];
+for(let i=0;i<sections.length;i++){
+ const [heading,...paras]=sections[i];
+ html=html.replace(new RegExp(`<section class="service-copy-section" id="section-${i+1}">[\\s\\S]*?<\\/section>`),`<section class="service-copy-section" id="section-${i+1}"><h2>${heading}</h2>${paras.map(p=>'<p>'+esc(p)+'</p>').join('')}</section>`);
+}
+html=html.replace(/<section class="stripe-tax-evidence" id="checkout-evidence">[\s\S]*?<\/section>/g,'');
+const evidence=`<section class="stripe-tax-evidence" id="checkout-evidence"><p class="eyebrow">ORIGINAL PROJECT IMAGE</p><h2>The cart during checkout review</h2><figure><a href="${prefix}assets/images/case-studies/irreconcilable-differences-cart-tax-redacted.webp"><img src="${prefix}assets/images/case-studies/irreconcilable-differences-cart-tax-redacted.webp" width="2250" height="1278" loading="lazy" decoding="async" alt="Historical WooCommerce cart showing an apparel product, a zero-dollar tax line and Stripe wallet payment options; shipping address redacted"></a><figcaption>Client-supplied April 8, 2026 cart screenshot. The shipping address is redacted; the product, totals and original tax line are unchanged. Open the image to inspect it at full size.</figcaption></figure><h3>What this image demonstrates</h3><p>The real store interface, cart layout and wallet options being reviewed. A $0.00 tax line alone does not establish whether tax should have been collected for that cart.</p></section>`;
+html=html.replace('<section class="service-copy-section" id="section-4">',evidence+'<section class="service-copy-section" id="section-4">');
+html=html.replace(/<section class="stripe-client-feedback" id="client-feedback">[\s\S]*?<\/section>/g,'');
+const feedback=`<section class="stripe-client-feedback" id="client-feedback"><p class="eyebrow">CLIENT FEEDBACK · APRIL 2026</p><h2>Reviewed setup and a useful handover</h2><figure><blockquote><p>“Working with you has been a pleasure. Your patience and attention to detail is greatly appreciated.”</p></blockquote><figcaption>Client message on Upwork, April 10, 2026, alongside milestone approval.</figcaption></figure><figure><blockquote><p>“The video was helpful and I'm happy with the work you have done. I will certainly reach out to you with future work.”</p></blockquote><figcaption>Client message on Upwork, April 30, 2026, after reviewing the walkthrough.</figcaption></figure><p>Selected verbatim excerpts from the supplied contract conversation. Private access information and unrelated messages are omitted.</p></section>`;
+html=html.replace(/<section class="case-evidence" id="evidence">[\s\S]*?<\/section>/,feedback+`<section class="case-evidence" id="evidence"><h2>About This Case Study</h2><p>${esc(c.evidenceNote)}</p><p>The public storefront image shows the current website. Historical client feedback documents acceptance of the reviewed integration and handover.</p></section>`);
+for(const id of ['checkout-evidence','client-feedback'])html=html.replace(new RegExp(`<a href="#${id}">[^<]*<\/a>`,'g'),'');
+html=html.replace('<a href="#evidence">Evidence and scope</a>','<a href="#evidence">About this case study</a>');
+html=html.replace('<a href="#evidence">About this case study</a>','<a href="#checkout-evidence">Original cart screenshot</a><a href="#client-feedback">Client feedback</a><a href="#evidence">About this case study</a>');
+if(!html.includes('assets/css/stripe-tax-evidence.css'))html=html.replace('</head>',`<link rel="stylesheet" href="${prefix}assets/css/stripe-tax-evidence.css"></head>`);
+for(const key of ['og:image','twitter:image'])html=html.replace(new RegExp(`(<meta (?:property|name)="${key}" content=")[^"]*`),'$1https://amankkamboj.github.io'+prefix+'assets/images/case-studies/irreconcilable-differences-store.webp');
+html=html.replace(/(<meta property="og:image:height" content=")[^"]*/,'$1960').replace(/(<meta property="og:image:width" content=")[^"]*/,'$11440').replace('name="twitter:card" content="summary"','name="twitter:card" content="summary_large_image"').replace('content="image/jpeg"','content="image/webp"').replaceAll('content="Aman Kumar, WordPress and PHP developer"','content="Irreconcilable Differences WooCommerce storefront"');
+fs.writeFileSync(file,html);
+// Use the same real storefront image in existing Stripe Tax listing cards.
+for(const listing of ['index.html','case-studies/index.html','woocommerce-development/index.html']){
+ let page=fs.readFileSync(listing,'utf8');
+ page=page.replace(/<article class="case-card">[\s\S]*?<\/article>/g,card=>{
+  if(!card.includes(prefix+c.slug+'/'))return card;
+  card=card.replace(/<a data-stripe-preview[^>]*>[\s\S]*?<\/a>/g,'');
+  return card.replace('<article class="case-card">',`<article class="case-card"><a data-stripe-preview href="${prefix}${c.slug}/"><img src="${prefix}assets/images/case-studies/irreconcilable-differences-store.webp" width="1440" height="960" alt="Irreconcilable Differences apparel storefront" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;margin-bottom:20px"></a>`);
+ });
+ fs.writeFileSync(listing,page);
+}

@@ -7,7 +7,7 @@ module.exports = [
     heading: 'Connecting WooCommerce checkout to Stripe Tax',
     description: 'A WooCommerce case study covering Stripe Tax integration, checkout testing, client review and a practical video handover for an apparel business.',
     category: 'WOOCOMMERCE INTEGRATION', icon: 'cart',
-    client: 'An online apparel business', period: 'March–April 2026',
+    client: 'Irreconcilable Differences — online apparel store', period: 'April 2026',
     role: 'Integration, checkout testing and handover',
     tools: ['WordPress', 'WooCommerce', 'Stripe', 'Stripe Tax'],
     summary: 'An existing store needed its checkout connected to a new tax service, with a configuration the owner could understand and manage.',
@@ -21,7 +21,7 @@ module.exports = [
       ['The outcome', 'The client confirmed that the reviewed setup looked right, authorized the switch to live use and released payment. I then supplied a walkthrough video. In later feedback, the client confirmed that the video was helpful and expressed satisfaction with the work.', 'The supported outcome is a reviewed integration and an accepted handover. This case study does not claim increased sales, measured cost savings or independent verification of a successful live customer purchase.'],
       ['What this project demonstrates', 'Connecting a store to an external service involves more than installing a plugin. Configuration, representative testing, client review and a usable handover all contribute to an implementation the owner can operate.', 'The scope here was technical setup. Tax registration, filing and legal obligations remain separate from the website integration.']
     ],
-    evidenceNote: 'Based on project delivery messages and client feedback from March–April 2026. The client accepted the reviewed configuration and later confirmed that the walkthrough was helpful. Historical messages do not establish current store behaviour.',
+    evidenceNote: 'This case study documents my April 2026 Stripe Tax integration for Irreconcilable Differences. It includes a supplied cart screenshot, selected client feedback and a current public-store screenshot. The cart shows one historical tax result, not proof of correct tax calculation for every address or a completed live purchase. Private account information and the shipping address are omitted.',
     service: 'woocommerce-development', serviceLabel: 'WooCommerce development',
     cta: 'Need help with your WooCommerce checkout?',
     ctaText: 'Share your store URL, the payment or integration problem, and the workflow you want to improve.'
