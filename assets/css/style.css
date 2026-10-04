@@ -2201,6 +2201,10 @@ body.feedback-open { overflow: hidden; }
 #main-nav > a { position: relative; }
 #main-nav > a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 5px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
 #main-nav > a:hover::after, #main-nav > a:focus-visible::after { transform: scaleX(1); }
+#main-nav > a.is-active::after { transform: scaleX(1); }
+#main-nav a.is-active, .services-menu.is-active > summary { color: var(--accent); }
+.services-menu.is-active > summary { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.services-dropdown a.is-active { background: #00d9eb14; }
 .services-dropdown a { transition: color 160ms ease, background 160ms ease; }
 .service-prose a { text-decoration: underline; text-underline-offset: 4px; }
 ::selection { background: #00d9eb; color: #00131f; }

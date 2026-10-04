@@ -2,6 +2,52 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#main-nav');
 const servicesMenu = document.querySelector('.services-menu');
+// Keep page groups and homepage sections visible in the shared navigation.
+const navLinks = [...navigation.querySelectorAll('a')];
+const navPath = value => value.replace(/index\.html$/, '').replace(/\/$/, '') || '/';
+const currentPath = navPath(location.pathname);
+const homeLink = navLinks.find(link => new URL(link.href).hash === '#home');
+const homePath = homeLink ? navPath(new URL(homeLink.href).pathname) : '/';
+function markNavigation(link, type = 'page') {
+  navLinks.forEach(item => {
+    item.classList.toggle('is-active', item === link);
+    if (item === link) item.setAttribute('aria-current', type);
+    else item.removeAttribute('aria-current');
+  });
+  servicesMenu?.classList.toggle('is-active', !!link && servicesMenu.contains(link));
+}
+if (currentPath === homePath) {
+  const sections = navLinks.map(link => ({link, url:new URL(link.href)}))
+    .filter(item => navPath(item.url.pathname) === homePath && item.url.hash)
+    .map(item => ({link:item.link, section:document.getElementById(item.url.hash.slice(1))}))
+    .filter(item => item.section);
+  function updateSectionNavigation() {
+    const offset = (document.querySelector('.site-header')?.getBoundingClientRect().height || 80) + 32;
+    const ordered = sections.slice().sort((a,b) => a.section.offsetTop - b.section.offsetTop);
+    let selected = ordered[0];
+    for (const item of ordered) if (item.section.getBoundingClientRect().top <= offset) selected = item;
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) selected = ordered.at(-1);
+    markNavigation(selected?.link, 'location');
+  }
+  let navFramePending = false;
+  window.addEventListener('scroll', () => {
+    if (navFramePending) return;
+    navFramePending = true;
+    requestAnimationFrame(() => { navFramePending = false; updateSectionNavigation(); });
+  }, {passive:true});
+  window.addEventListener('resize', updateSectionNavigation);
+  window.addEventListener('hashchange', updateSectionNavigation);
+  window.addEventListener('load', updateSectionNavigation);
+  updateSectionNavigation();
+} else {
+  let active = navLinks.find(link => {
+    const url = new URL(link.href);
+    return !url.hash && navPath(url.pathname) === currentPath;
+  });
+  if (!active && /\/case-study-[^/]+$/.test(currentPath)) active = navLinks.find(link => /\/case-studies\/$/.test(new URL(link.href).pathname));
+  if (!active && /\/client-feedback$/.test(currentPath)) active = navLinks.find(link => new URL(link.href).hash === '#testimonials');
+  markNavigation(active);
+}
 function closeMenu() {
   navigation.classList.remove('is-open');
   menuToggle.setAttribute('aria-expanded', 'false');
