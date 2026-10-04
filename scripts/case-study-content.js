@@ -32,7 +32,7 @@ module.exports = [
     heading: 'Delivering a clearer enquiry workflow for a care provider',
     description: 'A WordPress enquiry form case study: navigation fixes, notification review, service-page updates and successful client testing for a care provider.',
     category: 'WORDPRESS FORMS & WORKFLOWS', icon: 'document',
-    client: 'A care services provider', period: 'September 2026',
+    client: 'Clarus Healthcare — care provider in Worcestershire', period: 'September 2026',
     role: 'Form configuration, review fixes and page updates',
     tools: ['WordPress', 'Gravity Forms', 'Rank Math'],
     summary: 'A care provider needed a public companionship enquiry journey while a separate internal assessment workflow was still being evaluated.',
