@@ -2300,3 +2300,14 @@ body.feedback-open { overflow: hidden; }
 .enquiry-form .enquiry-status { min-height: 24px; margin: 16px 0 0; overflow-wrap: anywhere; color: var(--text); font-size: 15px; }
 @media (max-width: 768px) { #contact .enquiry-layout { grid-template-columns: 1fr; gap: 28px; } }
 @media (max-width: 520px) { .enquiry-form { padding: 20px; } .enquiry-form .form-grid { grid-template-columns: 1fr; } .enquiry-form .button { width: 100%; min-width: 0; } }
+
+/* Shared project previews on listings, services and related-project sections. */
+.case-card > .case-card-media { display:flex; width:100%; aspect-ratio:3 / 2; overflow:hidden; border-radius:10px; margin:0; background:var(--bg-secondary,var(--bg)); align-items:center; justify-content:center; }
+.case-card-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+.case-card-placeholder { flex-direction:column; gap:14px; border:1px solid var(--border); color:var(--accent); }
+.case-card-placeholder svg { width:64px; height:64px; fill:none; stroke:currentColor; stroke-width:2; }
+.case-card-placeholder span { font-size:13px; letter-spacing:.08em; }
+.case-card .case-category { margin:0; }
+.case-card .case-read { margin-top:0; }
+.case-card-media:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+@media (min-width:1001px) { .case-grid { align-items:stretch; } }
