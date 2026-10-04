@@ -6,6 +6,7 @@ const root = path.resolve(__dirname,'..');
 const files = ['index.html', ...fs.readdirSync(root,{withFileTypes:true}).filter(d=>d.isDirectory() && fs.existsSync(path.join(root,d.name,'index.html'))).map(d=>path.join(d.name,'index.html'))];
 const before = files.map(file=>fs.readFileSync(path.join(root,file),'utf8'));
 execFileSync(process.execPath,[path.join(__dirname,'normalize-project-cards.cjs')],{cwd:root});
+if (before.some(html=>html.includes('data-image-source='))) execFileSync(process.execPath,[path.join(__dirname,'optimize-site-images.cjs')],{cwd:root});
 let cards=0;
 files.forEach((file,i)=>{
  const html=fs.readFileSync(path.join(root,file),'utf8');

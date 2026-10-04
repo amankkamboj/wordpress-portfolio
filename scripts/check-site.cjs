@@ -5,6 +5,7 @@ const base = 'https://amankkamboj.github.io/wordpress-portfolio/';
 const pages = ['index.html', ...fs.readdirSync('.').filter(x => fs.existsSync(x + '/index.html')).map(x => x + '/index.html')];
 const attributes = tag => Object.fromEntries([...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map(x => [x[1], x[2]]));
 const titles = new Set();
+const descriptions = new Set();
 for (const file of pages) {
   const html = fs.readFileSync(file, 'utf8');
   const url = base + (file === 'index.html' ? '' : file.replace(/index\.html$/, ''));
@@ -14,6 +15,10 @@ for (const file of pages) {
   assert.ok(title && !titles.has(title), file + ': unique title'); titles.add(title);
   assert.equal((html.match(/<h1\b/g) || []).length, 1, file + ': one H1');
   assert.ok(metas.find(x => x.name === 'description')?.content, file + ': description');
+  const description = metas.find(x => x.name === 'description').content;
+  assert.ok(!descriptions.has(description), file + ': unique description'); descriptions.add(description);
+  assert.ok(metas.find(x => x.name === 'viewport'), file + ': mobile viewport');
+  assert.ok(/<html\b[^>]*lang="en"/.test(html), file + ': document language');
   assert.ok(!/noindex/.test(metas.find(x => x.name === 'robots')?.content || ''), file + ': indexable');
   assert.equal(links.find(x => x.rel === 'canonical')?.href, url, file + ': canonical');
   assert.equal(metas.find(x => x.property === 'og:url')?.content, url, file + ': social URL');
@@ -24,7 +29,14 @@ for (const file of pages) {
   assert.equal(ids.length, new Set(ids).size, file + ': unique IDs');
   for (const tag of html.matchAll(/<(a|img|script|link)\b[^>]*>/g)) {
     const attr = attributes(tag[0]);
-    if (tag[1] === 'img') assert.ok('alt' in attr, file + ': image alt');
+    if (tag[1] === 'img') {
+      assert.ok('alt' in attr, file + ': image alt');
+      if (attr.src && !attr.src.endsWith('.svg')) assert.ok(Number(attr.width)>0 && Number(attr.height)>0, file + ': image dimensions');
+      for (const candidate of (attr.srcset || '').split(',').filter(Boolean)) {
+        const imageUrl = new URL(candidate.trim().split(/\s+/)[0], url);
+        if (imageUrl.origin === new URL(base).origin) assert.ok(fs.existsSync(imageUrl.pathname.slice(new URL(base).pathname.length)), file + ': responsive image missing');
+      }
+    }
     const raw = attr.href || attr.src;
     if (!raw || /^(?:mailto:|tel:|data:)/.test(raw)) continue;
     const target = new URL(raw.replaceAll('&amp;', '&'), url);
