@@ -4,7 +4,7 @@ Verified locally on October 4, 2026.
 
 ## Improvements
 
-- Generated responsive WebP versions of 43 display images, used in 89 placements. Full-size display assets decreased from 3,038,007 to 2,057,258 bytes (32%). Smaller variants support mobile displays. This measures image files, not total page transfer or real-user load time.
+- Generated responsive WebP versions of 47 display images, used in 108 placements. Full-size display assets decreased from 3,178,681 to 2,167,188 bytes (32%). Smaller variants support mobile displays. This measures image files, not total page transfer or real-user load time.
 - Added intrinsic image dimensions and asynchronous decoding. Existing high-priority portrait loading and below-the-fold lazy loading are retained.
 - Retained original evidence files and full-size gallery links.
 - Reduced the ICO favicon from 129,482 to 9,845 bytes (92%) and removed duplicate favicon declarations.
@@ -12,9 +12,9 @@ Verified locally on October 4, 2026.
 
 ## Checks passed
 
-All 21 pages have unique titles/descriptions, one H1, English language declarations, mobile viewport settings, matching canonical and social URLs, parseable structured data and sitemap coverage. Local links, assets, anchors, responsive image variants, image dimensions and alt attributes pass validation.
+All 24 pages have unique titles/descriptions, one H1, English language declarations, mobile viewport settings, matching canonical and social URLs, parseable structured data and sitemap coverage. Local links, assets, anchors, responsive image variants, image dimensions and alt attributes pass validation.
 
-All 21 pages render without horizontal overflow or uncaught JavaScript errors at 390px and 1440px. Images decode successfully; project cards have one preview; keyboard skip links move focus into main content. Analytics consent and enquiry validation/success/error tests pass. Enquiry tests use mocked requests and do not send a real enquiry.
+All 24 pages render without horizontal overflow or uncaught JavaScript errors at 390px and 1440px. Images decode successfully; project cards have one preview; keyboard skip links move focus into main content. Analytics consent and enquiry validation/success/error tests pass. Enquiry tests use mocked requests and do not send a real enquiry.
 
 ## Scope
 

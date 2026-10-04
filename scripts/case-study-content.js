@@ -76,4 +76,4 @@ module.exports = [
     cta: 'Have a WordPress issue that is hard to trace?',
     ctaText: 'Send the affected URL, what you expected to happen and any recent changes. I can help investigate the underlying cause.'
   }
-].concat(require('./additional-case-study-content'));
+].concat(require('./additional-case-study-content'), require('./new-woocommerce-case-content'));

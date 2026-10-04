@@ -3,6 +3,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const prefix = '/wordpress-portfolio/';
 const images = {
+ 'case-study-woocommerce-cart-whatsapp': ['storefront-cart-review.webp', 'Anonymous store product-card cart review'],
+ 'case-study-woocommerce-sku-search': ['sku-product-search-result.webp', 'Anonymous product-name search result'],
+ 'case-study-woocommerce-delivery-checkout': ['delivery-product-review.webp', 'Anonymous delivery-product purchase interface'],
  'case-study-divi-wordpress-maintenance': ['agency-divi-legacy-module-warning.webp', 'Anonymous Divi compatibility finding'],
  'case-study-wordpress-malware-removal': ['sav-associates-wordpress-malware-recovery.webp', 'SAV Associates recovered homepage'],
  'case-study-woocommerce-stripe-tax': ['irreconcilable-differences-store.webp', 'Apparel storefront from the Stripe Tax project'],

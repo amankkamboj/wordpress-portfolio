@@ -2308,6 +2308,7 @@ body.feedback-open { overflow: hidden; }
 /* Shared project previews on listings, services and related-project sections. */
 .case-card > .case-card-media { display:flex; width:100%; aspect-ratio:3 / 2; overflow:hidden; border-radius:10px; margin:0; background:var(--bg-secondary,var(--bg)); align-items:center; justify-content:center; }
 .case-card-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+.case-card-media img[src*="sku-product-search-result"] { object-fit:contain; background:#fff; }
 .case-card-placeholder { flex-direction:column; gap:14px; border:1px solid var(--border); color:var(--accent); }
 .case-card-placeholder svg { width:64px; height:64px; fill:none; stroke:currentColor; stroke-width:2; }
 .case-card-placeholder span { font-size:13px; letter-spacing:.08em; }
