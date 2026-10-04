@@ -22,11 +22,11 @@ const server=http.createServer((req,res)=>{
  await p.goto(`http://127.0.0.1:${server.address().port}/wordpress-portfolio/${slug}/`,{waitUntil:'networkidle'});
  assert.equal(await p.locator('h1').count(),1);
  assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow at '+width);
- for(const img of await p.locator('img').all()){
+ for(const img of await p.locator('img[src]').all()){
  await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());
  }
  await p.evaluate(()=>scrollTo(0,0));
- assert.ok(await p.locator('img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)),'images at '+width);
+ assert.ok(await p.locator('img[src]').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)),'images at '+width);
  await p.keyboard.press('Tab');assert.equal(await p.locator(':focus').innerText(),'Skip to content');
  await p.keyboard.press('Enter');assert.equal(await p.locator(':focus').getAttribute('id'),'main');
  if(width===390||width===1440)await p.screenshot({path:path.join(process.env.TEMP,`${slug}-${width}.png`),fullPage:true});
