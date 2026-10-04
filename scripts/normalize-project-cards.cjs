@@ -27,7 +27,7 @@ for (const file of files) {
   const slug=card.match(/href="\/wordpress-portfolio\/(case-study-[^/]+)\//)?.[1];
   if(!slug)return card;
   let content=canonical.get(slug).replace(/<article[^>]*>/,'<article class="case-card">');
-  content=content.replace(/<a\b[^>]*>\s*<img\b[^>]*>\s*<\/a>/g,'').replace(/<div class="icon-box">[\s\S]*?<\/div>/g,'');
+  content=content.replace(/<a\b[^>]*class="case-card-media[^"]*"[^>]*>[\s\S]*?<\/a>/g,'').replace(/<a\b[^>]*>\s*<img\b[^>]*>\s*<\/a>/g,'').replace(/<div class="icon-box">[\s\S]*?<\/div>/g,'');
   const image=images[slug];
   const media=image ? `<a class="case-card-media" href="${prefix}${slug}/" aria-label="View case study: ${image[1]}"><img src="${prefix}assets/images/case-studies/${image[0]}" alt="${image[1]}" loading="lazy" decoding="async"></a>` : `<a class="case-card-media case-card-placeholder" href="${prefix}${slug}/" aria-label="View project case study"><svg aria-hidden="true" viewBox="0 0 64 64"><rect x="10" y="12" width="44" height="40" rx="4"/><path d="M10 23h44M20 33h24M20 42h16"/></svg><span>Project case study</span></a>`;
   content=content.replace('<article class="case-card">','<article class="case-card">'+media);
