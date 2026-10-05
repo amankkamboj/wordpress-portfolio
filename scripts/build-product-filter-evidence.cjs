@@ -1,0 +1,21 @@
+// Update this case without regenerating unrelated pages. Raw attachments stay outside the repository.
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const c = require('./additional-case-study-content').find(c => c.slug === 'case-study-woocommerce-product-filters');
+const prefix = '/wordpress-portfolio/';
+const esc = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+const file = path.join(root, c.slug, 'index.html');
+let html = fs.readFileSync(file, 'utf8');
+const gallery = `<section class="case-gallery" id="project-images"><h2>${esc(c.galleryHeading)}</h2><p>${esc(c.galleryIntro)}</p><div class="case-gallery-grid">${c.images.map(i => `<figure><a href="${prefix}assets/images/case-studies/${i.file}" data-case-image aria-label="View full-size screenshot: ${esc(i.alt)}"><img src="${prefix}assets/images/case-studies/${i.file}" width="${i.width}" height="${i.height}" alt="${esc(i.alt)}" loading="lazy" decoding="async"></a><figcaption>${esc(i.caption)}</figcaption></figure>`).join('')}</div></section>`;
+html = html.replace(/<section class="case-gallery[^\"]*" id="project-images">[\s\S]*?<\/section>/, '');
+html = html.replace('<section class="case-evidence" id="evidence">', gallery + '<section class="case-evidence" id="evidence">');
+html = html.replace('<dd>An online device-parts retailer</dd>', `<dd>${esc(c.client)}</dd>`);
+html = html.replace('A reset button was also requested; the evidence used here does not separately establish its final behaviour.', 'The later homepage and category screenshots show the requested reset control; its behaviour was not independently tested for this case study.');
+html = html.replace('<p>Client identity is withheld. This is a summary of project work, not a reproduction of private messages.</p>', `<p>${esc(c.identityNote)}</p>`);
+const projectLink = '<p class="project-domain"><strong>Historical project website:</strong> <a href="https://smartparts.lt/" target="_blank" rel="noopener noreferrer">smartparts.lt ↗</a> (October 2025 store). The domain now shows different content; the screenshots below preserve the project interface.</p>';
+if (!html.includes('class="project-domain"')) html = html.replace('<dl class="case-facts">', projectLink + '<dl class="case-facts">');
+if (!html.includes('href="#project-images"')) html = html.replace('<a href="#evidence">Evidence and scope</a>', '<a href="#project-images">Original filter screenshots</a><a href="#evidence">Evidence and scope</a>');
+if (!html.includes('assets/js/case-gallery.js')) html = html.replace('</head>', `<script src="${prefix}assets/js/case-gallery.js" defer></script>\n</head>`);
+fs.writeFileSync(file, html);
+console.log('Updated product-filter evidence and historical project URL.');

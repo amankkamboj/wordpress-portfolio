@@ -138,17 +138,25 @@ module.exports = [
     heading: 'Helping shoppers find products by manufacturer and model',
     description: 'A custom WooCommerce product-filter case study covering a shortcode plugin, manufacturer and model selection, mobile review and client approval.',
     category: 'ECOMMERCE PRODUCT DISCOVERY', icon: 'cart',
-    client: 'An online device-parts retailer', period: 'October 2025',
+    client: 'Smartparts — Lithuanian device-parts store in October 2025', period: 'October 2025',
     role: 'Custom filter plugin, client revisions and category-page rollout',
     tools: ['WordPress', 'WooCommerce', 'Custom plugin', 'Shortcodes'],
     summary: 'A device-parts store needed a clearer way to browse products by manufacturer, model and category, starting on its homepage.',
     outcome: 'Client-reviewed filters, homepage testing and category-page delivery followed by approval.',
     evidence: 'Client review and approval recorded',
     flow: ['Build on a test page', 'Refine product selection', 'Roll out to store pages'],
+    galleryHeading: 'Original filter implementation screenshots',
+    galleryIntro: 'Original October 5–6, 2025 project screenshots from Smartparts. Desktop crops remove browser controls, bookmarks, the taskbar and the WordPress admin toolbar. These images document the historical store, not the current website.',
+    identityNote: 'The historical project website was smartparts.lt. The domain showed a technology news website when checked on October 5, 2026. These screenshots document the October 2025 store and do not establish the current implementation. Private messages and access details are not published.',
+    images: [
+      { file: 'smartparts-homepage-filters.webp', width: 1804, height: 536, alt: 'Smartparts homepage manufacturer, model and category filter with reset button', caption: 'October 6, 2025 homepage testing screenshot: manufacturer, model and category selections with the Išvalyti reset control. The screenshot records the interface; it is not a measured sales result.' },
+      { file: 'smartparts-category-filters.webp', width: 1780, height: 650, alt: 'Smartparts custom filter above the iPhone battery category archive', caption: 'October 6, 2025 category-page delivery screenshot: the shortcode filter above the iPhone battery archive. Dependent model and category controls are disabled until an earlier selection is made.' },
+      { file: 'smartparts-mobile-filters.webp', width: 752, height: 1336, alt: 'Smartparts mobile manufacturer, model and category filter preview', caption: 'October 5, 2025 mobile preview shared during client review. The controls stack vertically. This preview predates the later desktop screenshots containing the reset control.' }
+    ],
     sections: [
       ['The problem', 'The store wanted shoppers to find relevant products through attribute-based filtering on its WooCommerce homepage. For device parts, selecting a manufacturer alone was not enough: the customer also needed a model selection and a useful category choice.', 'The project focused on the product-discovery interface within an existing store, rather than rebuilding its catalogue or checkout.'],
       ['My implementation', 'I developed a custom plugin that exposed the filter through a shortcode and placed it on a test page for review. This let the client check the selection behaviour before the feature was moved to the homepage.', 'The review clarified the manufacturer, model and category controls. I worked through the requested changes and adjusted the customer-facing labels to the Lithuanian wording supplied by the client.'],
-      ['Review and rollout', 'The client reviewed the test-page implementation, requested label changes and gave positive feedback on the revised filter. I shared a mobile preview and reported testing the homepage filters.', 'The client then requested the same filtering interface on product-category archives. I confirmed that scope and shared the category-page implementation for review. A reset button was also requested; the evidence used here does not separately establish its final behaviour.'],
+      ['Review and rollout', 'The client reviewed the test-page implementation, requested label changes and gave positive feedback on the revised filter. I shared a mobile preview and reported testing the homepage filters.', 'The client then requested the same filtering interface on product-category archives. I confirmed that scope and shared the category-page implementation for review. The later homepage and category screenshots show the requested reset control; its behaviour was not independently tested for this case study.'],
       ['The outcome', 'The conversation records positive client feedback on the reviewed feature, followed by an approval event after the category-page delivery. The supported result is a reviewed product-filter implementation across the homepage and category pages.', 'The project was intended to make product discovery easier. There is no measured conversion-rate or sales increase in the evidence used for this case study.'],
       ['What this project demonstrates', 'Product filtering needs to match how people select compatible items. Working through the manufacturer and model distinction with the client was as important as placing the controls on the page.', 'A shortcode-based implementation also allowed the same interface to be placed in more than one part of the existing store.']
     ],

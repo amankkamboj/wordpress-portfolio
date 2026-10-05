@@ -77,6 +77,8 @@ The case-study URLs are top-level directories so scripts/configure-seo.js discov
 
 Keep private source conversations, credentials, client records and draft evidence outside this public repository. Public narratives distinguish client-confirmed acceptance from developer-reported resolution. Do not add numerical results or identify clients without supporting evidence and appropriate permission. Original screenshots can be added later; the current cards use the existing icon system.
 
+The Smartparts product-filter case includes original October 5–6, 2025 homepage, category and mobile screenshots. The project domain showed a different technology news website when checked on October 5, 2026; the images are historical evidence. Run `node scripts/build-product-filter-evidence.cjs` after general case builders, followed by the card normalizer and image optimizer. Image preparation accepts local originals through `scripts/prepare-product-filter-images.cjs`; raw attachments and private messages remain outside the repository.
+
 ## Analytics and release verification
 Google Analytics (G-5N5BEMMRD2) loads only after acceptance. The browser preference expires after 180 days and can be changed using the footer analytics settings. Declining leaves analytics disabled. The contact_click event records email or LinkedIn clicks; it does not prove an enquiry was sent or a lead was received. No GA4 key-event setting is configured by this code.
 

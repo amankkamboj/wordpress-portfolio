@@ -42,6 +42,7 @@ for (const c of cases) {
     page = page.replace('<a href="#project-images">Project screenshots</a>', '');
     page = page.replace('<a href="#section-5">Testing and changing requirements</a>', '<a href="#project-images">Project screenshots</a><a href="#section-5">Testing and changing requirements</a>');
   }
+  if (c.identityNote) page = page.replace('Client identity is withheld. This is a summary of project work, not a reproduction of private messages.', escape(c.identityNote));
   fs.mkdirSync(path.join(root,c.slug),{recursive:true});
   fs.writeFileSync(path.join(root,c.slug,'index.html'),page);
 }

@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const prefix = '/wordpress-portfolio/';
 const images = {
+ 'case-study-woocommerce-product-filters': ['smartparts-homepage-filters.webp', 'Smartparts manufacturer and model filter implementation'],
  'case-study-woocommerce-cart-whatsapp': ['storefront-cart-review.webp', 'Anonymous store product-card cart review'],
  'case-study-woocommerce-sku-search': ['sku-product-search-result.webp', 'Anonymous product-name search result'],
  'case-study-woocommerce-delivery-checkout': ['delivery-product-review.webp', 'Anonymous delivery-product purchase interface'],
