@@ -18,7 +18,7 @@ function run(choice, search = '') {
       href: 'https://example.com/wordpress-portfolio/' + search },
     localStorage: { getItem: () => JSON.stringify({ value: choice, time: Date.now() }) }
   });
-  return { window, scripts, click(href) { listeners.click({ target: { closest: () => ({ getAttribute: () => href }) } }); } };
+  return { window, scripts, click(href, button = false) { listeners.click({ target: { closest: () => ({ getAttribute: () => href, closest: () => null, matches: () => button, textContent: 'Discuss Your Project' }) } }); } };
 }
 for (const choice of [null, 'declined']) {
   const result = run(choice);
@@ -36,6 +36,19 @@ const events = result.window.dataLayer.filter(item => item[0] === 'event');
 assert.deepEqual(Array.from(events, item => item[1]), ['contact_click', 'contact_click', 'project_cta_click', 'case_study_click']);
 assert.equal(events[3][2].destination_path, '/wordpress-portfolio/case-study-woocommerce-vendor-workflows/');
 assert.ok(!JSON.stringify(events).includes('private'));
+result.click('#contact', true);
+result.click('/wordpress-portfolio/wordpress-security/');
+result.click('/wordpress-portfolio/client-feedback/');
+result.click('https://www.upwork.com/freelancers/test');
+const additional = result.window.dataLayer.filter(item => item[0] === 'event').slice(4);
+assert.deepEqual(Array.from(additional, item => item[1]), ['cta_click', 'project_cta_click', 'service_click', 'feedback_click', 'contact_click']);
+assert.equal(additional[0][2].cta_label, 'Discuss Your Project');
+assert.equal(additional[4][2].contact_method, 'upwork');
+for (const choice of [null, 'declined']) {
+  const disabled = run(choice);
+  disabled.window.portfolioTrack('generate_lead', { form_id: 'portfolio-enquiry-form' });
+  assert.equal(disabled.window.dataLayer, undefined);
+}
 const pages = ['index.html', ...fs.readdirSync('.').filter(name => fs.existsSync(name + '/index.html')).map(name => name + '/index.html')];
 for (const page of pages) assert.equal((fs.readFileSync(page, 'utf8').match(/assets\/js\/analytics\.js/g) || []).length, 1, page);
 console.log(`Analytics checks passed: consent, safe attribution, contact/navigation events, ${pages.length} pages.`);

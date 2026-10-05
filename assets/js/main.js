@@ -116,6 +116,17 @@ if (enquiryForm) {
   const pageUrl = enquiryForm.elements.namedItem('page_url');
   pageUrl.value = window.location.href;
   let sending = false;
+  const trackEnquiry = (name, extra = {}) => {
+    if (typeof window.portfolioTrack === 'function') window.portfolioTrack(name, {
+      form_id: 'portfolio-enquiry-form', lead_source: 'portfolio_enquiry_form', ...extra
+    });
+  };
+  let started = false;
+  enquiryForm.addEventListener('input', () => {
+    if (started) return;
+    started = true;
+    trackEnquiry('enquiry_start');
+  });
   enquiryForm.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending) return;
@@ -124,10 +135,14 @@ if (enquiryForm) {
       const field = enquiryForm.elements.namedItem(name);
       field.value = field.value.trim();
     }
-    if (!enquiryForm.reportValidity()) return;
+    if (!enquiryForm.reportValidity()) {
+      trackEnquiry('enquiry_validation_error');
+      return;
+    }
     pageUrl.value = window.location.href;
     const payload = Object.fromEntries(new FormData(enquiryForm));
     sending = true;
+    trackEnquiry('enquiry_submit_attempt');
     submitButton.disabled = true;
     enquiryForm.setAttribute('aria-busy', 'true');
     status.textContent = 'Sending…';
@@ -144,10 +159,9 @@ if (enquiryForm) {
       enquiryForm.reset();
       pageUrl.value = window.location.href;
       status.textContent = 'Thanks — your enquiry has been sent successfully.';
-      if (typeof window.gtag === 'function') {
-        try { window.gtag('event', 'generate_lead', { lead_source: 'portfolio_enquiry_form' }); } catch (_) { /* Analytics must not interrupt a successful enquiry. */ }
-      }
+      trackEnquiry('generate_lead');
     } catch (_) {
+      trackEnquiry('enquiry_submit_error');
       status.textContent = 'Your enquiry could not be sent right now. You can also email me directly at amankamboj2387@gmail.com.';
     } finally {
       clearTimeout(timeout);
