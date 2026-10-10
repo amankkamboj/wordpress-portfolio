@@ -56,6 +56,8 @@ Edit text, recommendation excerpts, image paths and links directly in index.html
 Local validation checks metadata uniqueness, schema JSON, sitemap XML, asset paths and accessibility attributes. Search Console ownership, live deployment and Google indexing are separate steps and are not established by local validation.
 
 ## Dedicated service pages
+
+Search Console-informed improvements for the WooCommerce and performance pages are authored in `scripts/search-improvement-content.cjs`. Run `node scripts/build-search-improvements.cjs` last after service/case generators. It updates metadata, visible project evidence summaries and hiring questions without rebuilding navigation or forms. See `SEARCH-IMPROVEMENTS-2026-10-10.md` for the screenshot baseline and follow-up measurement plan.
 Six directory-based service pages are included: wordpress-migration-maintenance, wordpress-development, woocommerce-development, wordpress-troubleshooting, wordpress-performance-optimization, and wordpress-security. Each folder contains an index.html and shares the existing CSS and JavaScript. Homepage cards, a native Services dropdown, footer links and related-service cards connect the pages.
 
 See SERVICE-PAGES.md for the exact URLs, titles, descriptions and publishing checklist. Authoring sources are scripts/service-content.js and scripts/build-services.js. Do not run scripts/build-services.js until it supports the current migration page, navigation and consent-gated analytics; edit service HTML directly. No build is required by the deployed website.
