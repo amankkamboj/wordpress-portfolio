@@ -107,5 +107,5 @@ module.exports = cases.map(c=>({...c,
  title:c.heading+' | Aman Kumar',
  description:c.summary,
  evidenceNote:'Based on the project delivery conversation and client review records. Client identity and private access information are withheld. Outcomes are limited to the specific confirmations described above.',
- images:[]
+ images:require('./researched-case-images.cjs')[c.slug] || []
 }));
