@@ -13,7 +13,13 @@ const images = {
  'case-study-wordpress-enquiry-workflow': ['clarus-companionship-service-preview.webp', 'Companionship enquiry service page'],
  'case-study-wordpress-quiz-funnel': ['quiz-funnel-redesigned-landing.webp', 'Redesigned quiz funnel landing page'],
  'case-study-woocommerce-vendor-workflows': ['marketplace-order-navigation.webp', 'Marketplace order navigation interface'],
- 'case-study-woocommerce-affiliate-tracking': ['affiliate-dashboard.webp', 'Affiliate tracking dashboard']
+ 'case-study-woocommerce-affiliate-tracking': ['affiliate-dashboard.webp', 'Affiliate tracking dashboard'],
+ 'case-study-wordpress-assessment-tool': ['assessment-scoring-review.webp', 'Assessment submission score, tier and review actions'],
+ 'case-study-drupal-wordpress-migration': ['drupal-migration-slug-review.webp', 'WordPress Events Calendar warning about a conflicting page slug'],
+ 'case-study-gravity-forms-directory': ['directory-category-search.webp', 'Business directory category dropdown and category cards'],
+ 'case-study-consulting-wordpress-rebuild': ['consulting-breadcrumb-review.webp', 'Consulting service page hero and Home breadcrumb during review'],
+ 'case-study-recruitment-questionnaire': ['recruitment-questionnaire-review.webp', 'Unfilled recruitment questionnaire with experience and qualification options'],
+ 'case-study-wordpress-critical-error': ['critical-error-disabled-plugin.webp', 'Hosting file manager showing the renamed and disabled conflicting plugin folder']
 };
 const files = ['index.html', ...fs.readdirSync('.',{withFileTypes:true}).filter(d=>d.isDirectory() && fs.existsSync(path.join(d.name,'index.html'))).map(d=>path.join(d.name,'index.html'))];
 const pattern = /<article class="case-card(?: [^"]*)?">[\s\S]*?<\/article>/g;

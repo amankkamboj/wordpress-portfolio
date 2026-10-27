@@ -2,6 +2,7 @@
 const cases = [
  {
  slug:'case-study-wordpress-assessment-tool', heading:'Building a scored assessment tool in WordPress',
+ pageTitle:'WordPress Assessment & Scoring Plugin Case Study | Aman Kumar',
  category:'CUSTOM WORDPRESS DEVELOPMENT', client:'A cybersecurity advisory business', period:'May–July 2026',
  role:'Custom plugin development, assessment logic and handover', tools:['WordPress','PHP','Shortcodes','Zoho'],
  summary:'A client-defined assessment needed an interactive questionnaire, consistent scoring and a useful way to review completed submissions.',
@@ -19,6 +20,7 @@ const cases = [
  },
  {
  slug:'case-study-drupal-wordpress-migration', heading:'Moving a Drupal content hierarchy into WordPress',
+ pageTitle:'Drupal to WordPress Migration Case Study | Aman Kumar',
  category:'DRUPAL TO WORDPRESS MIGRATION', client:'An established content website', period:'June–November 2024',
  role:'WordPress reconstruction and content migration', tools:['Drupal','WordPress','Content migration','Navigation'],
  summary:'With only Drupal administrator access available, the website needed to be reconstructed in WordPress while retaining its design, content and navigation hierarchy.',
@@ -36,6 +38,7 @@ const cases = [
  },
  {
  slug:'case-study-gravity-forms-directory', heading:'Turning business registrations into searchable listings',
+ pageTitle:'Gravity Forms & GravityView Business Directory Case Study | Aman Kumar',
  category:'GRAVITY FORMS BUSINESS DIRECTORY', client:'A business-directory website', period:'May 2025',
  role:'Directory field mapping, category search and listing refinements', tools:['WordPress','Gravity Forms','GravityKit','GravityView'],
  summary:'An existing registration form needed clearer public listings and category-based discovery so visitors could find relevant organizations.',
@@ -53,6 +56,7 @@ const cases = [
  },
  {
  slug:'case-study-consulting-wordpress-rebuild', heading:'Rebuilding a consulting website in WordPress',
+ pageTitle:'.NET to WordPress Migration & Website Rebuild Case Study | Aman Kumar',
  category:'WEBSITE MIGRATION AND REBUILD', client:'A consulting business', period:'May–June 2025',
  role:'WordPress setup, page reconstruction, navigation repairs and handover', tools:['WordPress','Content migration','Staging','Responsive layouts'],
  summary:'A consulting business wanted to move its existing .NET website experience to a new domain and hosting setup while retaining its content and familiar structure.',
@@ -70,6 +74,7 @@ const cases = [
  },
  {
  slug:'case-study-recruitment-questionnaire', heading:'Building reusable recruitment questionnaires and reporting',
+ pageTitle:'Gravity Forms Candidate Screening & CSV Reporting Case Study | Aman Kumar',
  category:'GRAVITY FORMS RECRUITMENT WORKFLOW', client:'A healthcare recruitment team', period:'July–September 2026',
  role:'Questionnaire implementation, reporting plugin and documentation', tools:['WordPress','Gravity Forms','PHP','CSV','SMTP'],
  summary:'A recruitment team needed reusable campaign questionnaires, dependable submission notifications and a manageable way to consolidate responses.',
@@ -87,6 +92,7 @@ const cases = [
  },
  {
  slug:'case-study-wordpress-critical-error', heading:'Restoring WordPress access after a plugin conflict',
+ pageTitle:'WordPress Critical Error Recovery & Plugin Conflict Case Study | Aman Kumar',
  category:'WORDPRESS CRITICAL-ERROR RECOVERY', client:'An existing WordPress website', period:'September 2023',
  role:'Fault isolation and immediate site recovery', tools:['WordPress','Plugin troubleshooting','Error diagnosis'],
  summary:'A critical error disrupted an existing WordPress website. The immediate priority was to isolate the cause and restore normal access.',
@@ -104,7 +110,7 @@ const cases = [
  }
 ];
 module.exports = cases.map(c=>({...c,
- title:c.heading+' | Aman Kumar',
+ title:c.pageTitle || (c.heading+' | Aman Kumar'),
  description:c.summary,
  evidenceNote:'Based on the project delivery conversation and client review records. Client identity and private access information are withheld. Outcomes are limited to the specific confirmations described above.',
  images:require('./researched-case-images.cjs')[c.slug] || []

@@ -111,6 +111,23 @@ motionPreference.addEventListener('change', configureReveals);
 // The enquiry endpoint validates submissions independently of these browser checks.
 const enquiryForm = document.querySelector('#portfolio-enquiry-form');
 if (enquiryForm) {
+  const serviceField = enquiryForm.elements.namedItem('service');
+  if (serviceField && !serviceField.value && document.referrer) {
+    try {
+      const refPath = new URL(document.referrer).pathname;
+      const serviceMap = [
+        ['/woocommerce-development', 'WooCommerce'],
+        ['/wordpress-development', 'WordPress Development'],
+        ['/wordpress-troubleshooting', 'WordPress Troubleshooting'],
+        ['/wordpress-performance-optimization', 'Performance Optimization'],
+        ['/wordpress-security', 'WordPress Security'],
+        ['/wordpress-migration-maintenance', 'Migration & Maintenance']
+      ];
+      for (const [slug, option] of serviceMap) {
+        if (refPath.includes(slug)) { serviceField.value = option; break; }
+      }
+    } catch (_) {}
+  }
   const submitButton = enquiryForm.querySelector('[type="submit"]');
   const status = document.querySelector('#enquiry-status');
   const pageUrl = enquiryForm.elements.namedItem('page_url');

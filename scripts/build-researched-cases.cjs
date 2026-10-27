@@ -39,18 +39,34 @@ fs.mkdirSync(path.join(root,c.slug),{recursive:true});
 }
 for (const file of ['index.html','case-studies/index.html',...new Set(cases.map(c=>c.service+'/index.html'))]) {
  let html = read(file);
- const relevant = file==='index.html' ? cases.slice(0,3) : file==='case-studies/index.html' ? cases : cases.filter(c=>file===c.service+'/index.html');
+ const relevant = file==='index.html' ? [cases[0], cases[2]] : file==='case-studies/index.html' ? cases : cases.filter(c=>file===c.service+'/index.html');
  html = html.replace(/<article class="case-card(?: [^"]*)?">[\s\S]*?<\/article>/g,item=>cases.some(c=>item.includes(prefix+c.slug+'/'))?'':item);
  const marker = file==='index.html' ? '<!-- CASE-STUDIES START -->' : file==='case-studies/index.html' ? '<section id="reviewed"' : '<!-- CASE-STUDY-TEASER START -->';
  if(!html.includes(marker) && file!=='index.html' && file!=='case-studies/index.html') {
   const teaser='<!-- CASE-STUDY-TEASER START --><section class="section case-service-teaser"><div class="container"><p class="eyebrow">RELATED PROJECT WORK</p><h2>Explore migration and rebuild projects.</h2><div class="case-grid case-grid-two"></div></div></section><!-- CASE-STUDY-TEASER END -->';
-  html=html.replace('</main>',teaser+'</main>');
+  html=html.includes('<section class="section related-services">') ? html.replace('<section class="section related-services">',teaser+'\n<section class="section related-services">') : html.replace('</main>',teaser+'</main>');
  }
  const start=html.indexOf(marker), grid=html.indexOf('<div class="case-grid',start);
  if(start<0||grid<0) throw new Error('Missing case grid: '+file);
  const end=html.indexOf('>',grid)+1;
  html=html.slice(0,end)+relevant.map(card).join('')+html.slice(end);
  write(file,html);
+}
+// Update CollectionPage ItemList in case-studies/index.html with all cards currently rendered on the hub
+{
+ let hub = read('case-studies/index.html');
+ const items = [...hub.matchAll(/<h3><a href="([^"]+)">([\s\S]*?)<\/a><\/h3>/g)].map((m, idx) => ({
+  '@type': 'ListItem',
+  position: idx + 1,
+  name: m[2].replaceAll('&amp;', '&').replaceAll('&quot;', '"'),
+  url: new URL(m[1], base).href
+ }));
+ hub = hub.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (_, json) => {
+  const schema = JSON.parse(json);
+  if (schema.mainEntity) schema.mainEntity.itemListElement = items;
+  return '<script type="application/ld+json">' + JSON.stringify(schema, null, 2) + '</script>';
+ });
+ write('case-studies/index.html', hub);
 }
 let sitemap=read('sitemap.xml');
 for(const c of cases) {
